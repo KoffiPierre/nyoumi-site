@@ -1,0 +1,238 @@
+:root {
+  /* ---- Palette: "Plans" — technical drawing, ink on drafting paper ---- */
+  --paper: #faf9f5;
+  --paper-line: #f2f0e8;
+  --paper-raised: #ffffff;
+  --ink: #1a1a1a;
+  --red: #bf3126;
+  --red-soft: #e8b3ac;
+  --graphite: #5c5c5c;
+  --graphite-soft: #8a8a82;
+  --line: rgba(26, 26, 26, 0.18);
+  --line-soft: rgba(26, 26, 26, 0.09);
+  --radius: 0px;
+  --max-width: 1220px;
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+
+  --font-display: 'Big Shoulders Display', sans-serif;
+  --font-body: 'Archivo', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', 'SF Mono', monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  background-image: linear-gradient(var(--paper-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--paper-line) 1px, transparent 1px);
+  background-size: 8px 8px;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.wrap {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 36px;
+}
+
+@media (max-width: 640px) {
+  .wrap {
+    padding: 0 20px;
+  }
+}
+
+.mono {
+  font-family: var(--font-mono);
+  letter-spacing: 0.02em;
+}
+
+/* Folio label — "§ 0X — LABEL" reference tag used throughout */
+.folio {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--red);
+  display: block;
+  margin-bottom: 10px;
+}
+
+.folio-num {
+  color: var(--red);
+}
+
+:focus-visible {
+  outline: 2px solid var(--red);
+  outline-offset: 3px;
+}
+
+/* Registration cross marks — drafting alignment ticks */
+.reg {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  pointer-events: none;
+}
+.reg::before,
+.reg::after {
+  content: '';
+  position: absolute;
+  background: var(--line);
+}
+.reg::before {
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  transform: translateX(-50%);
+}
+.reg::after {
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  transform: translateY(-50%);
+}
+.reg.tl { top: 14px; left: 14px; }
+.reg.tr { top: 14px; right: 14px; }
+.reg.bl { bottom: 14px; left: 14px; }
+.reg.br { bottom: 14px; right: 14px; }
+
+.btn {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 14px 24px;
+  border-radius: var(--radius);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.25s var(--ease);
+  border: 1px solid var(--ink);
+}
+
+.btn-primary {
+  background: var(--ink);
+  color: var(--paper);
+}
+.btn-primary:hover {
+  background: var(--red);
+  border-color: var(--red);
+}
+
+.btn-ghost {
+  border: 1px solid var(--line-soft);
+  color: var(--paper);
+  background: transparent;
+}
+.btn-ghost:hover {
+  border-color: var(--red-soft);
+  color: var(--red-soft);
+}
+
+.btn-outline {
+  border: 1px solid var(--ink);
+  color: var(--ink);
+  background: transparent;
+}
+.btn-outline:hover {
+  border-color: var(--red);
+  color: var(--red);
+}
+
+.rule {
+  border: none;
+  border-top: 1px solid var(--line);
+  margin: 0;
+}
+
+/* Dimension-line section divider */
+.dim {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 6px 0;
+}
+.dim-line {
+  flex: 1;
+  height: 1px;
+  background: var(--line);
+  position: relative;
+}
+.dim-line::before,
+.dim-line::after {
+  content: '';
+  position: absolute;
+  top: -4px;
+  width: 1px;
+  height: 9px;
+  background: var(--ink);
+}
+.dim-line::before { left: 0; }
+.dim-line::after { right: 0; }
+.dim-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--graphite);
+  white-space: nowrap;
+}

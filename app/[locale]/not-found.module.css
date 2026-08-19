@@ -1,0 +1,32 @@
+.wrap {
+  background: var(--ink);
+  color: var(--paper);
+  min-height: calc(100vh - 60px - 260px);
+  display: flex;
+  align-items: center;
+}
+
+.content {
+  padding: 70px 0;
+}
+
+.kicker {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--red-soft);
+}
+
+.title {
+  font-size: clamp(32px, 5.2vw, 54px);
+  margin-top: 18px;
+  max-width: 620px;
+}
+
+.lede {
+  margin: 20px 0 32px;
+  color: #cbc7bd;
+  font-size: 15.5px;
+  max-width: 460px;
+  text-transform: none;
+  font-family: var(--font-body);
+}

@@ -1,0 +1,42 @@
+.split {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 64px;
+  align-items: center;
+}
+
+@media (max-width: 860px) {
+  .split {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+}
+
+.image img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 765 / 567;
+  object-fit: cover;
+  filter: sepia(0.1) saturate(0.95);
+  border: 1px solid var(--line);
+}
+
+.caption {
+  display: block;
+  margin-top: 12px;
+  font-size: 11px;
+  color: var(--ink-soft);
+}
+
+.heading {
+  margin: 18px 0 20px;
+  font-size: clamp(26px, 3vw, 34px);
+  font-style: italic;
+}
+
+.split p {
+  color: var(--ink-soft);
+  font-size: 15.5px;
+  line-height: 1.7;
+  margin: 0 0 16px;
+}

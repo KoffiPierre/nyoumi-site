@@ -1,0 +1,21 @@
+.wrap {
+  padding: 50px 0 44px;
+  border-bottom: 1px solid var(--ink);
+  margin-bottom: 50px;
+}
+
+.title {
+  font-size: clamp(38px, 6.4vw, 72px);
+  line-height: 0.95;
+  max-width: 900px;
+}
+
+.lede {
+  margin-top: 22px;
+  max-width: 560px;
+  color: var(--graphite);
+  font-size: 15.5px;
+  line-height: 1.7;
+  text-transform: none;
+  font-family: var(--font-body);
+}

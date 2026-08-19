@@ -1,0 +1,39 @@
+.head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 40px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.title {
+  font-size: clamp(28px, 3.6vw, 44px);
+  max-width: 600px;
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 16px;
+  max-width: 320px;
+}
+
+.desc {
+  color: var(--graphite);
+  font-size: 13.5px;
+  line-height: 1.6;
+  margin: 0;
+  text-align: right;
+}
+
+@media (max-width: 760px) {
+  .right {
+    align-items: flex-start;
+    max-width: none;
+  }
+  .desc {
+    text-align: left;
+  }
+}

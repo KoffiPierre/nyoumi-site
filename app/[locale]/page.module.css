@@ -1,0 +1,43 @@
+.headAction {
+  font-size: 11.5px;
+  white-space: nowrap;
+}
+
+.cta {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+@media (max-width: 760px) {
+  .cta {
+    grid-template-columns: 1fr;
+  }
+}
+
+.ctaTitle {
+  font-style: italic;
+  color: #fff;
+  font-size: clamp(32px, 5vw, 56px);
+  line-height: 1.05;
+}
+
+.ctaLede {
+  margin-top: 18px;
+  color: #e8ded0;
+  max-width: 460px;
+  font-size: 15.5px;
+  line-height: 1.7;
+}
+
+.ctaAction {
+  display: flex;
+  justify-content: flex-end;
+}
+
+@media (max-width: 760px) {
+  .ctaAction {
+    justify-content: flex-start;
+  }
+}

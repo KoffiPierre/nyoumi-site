@@ -1,0 +1,159 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 60;
+  background: rgba(250, 249, 245, 0.92);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--ink);
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  gap: 20px;
+}
+
+.plate {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+  color: var(--ink);
+  min-width: 0;
+}
+
+.id {
+  font-size: 10.5px;
+  color: var(--red);
+  border: 1px solid var(--red);
+  padding: 3px 8px;
+  white-space: nowrap;
+}
+
+.name {
+  font-family: var(--font-display);
+  font-size: 18px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.nav ul {
+  display: flex;
+  gap: 26px;
+  list-style: none;
+}
+
+.nav a {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--graphite);
+  transition: color 0.2s var(--ease);
+}
+
+.nav a:hover,
+.nav a.active {
+  color: var(--red);
+}
+
+.cta {
+  font-size: 11px;
+  padding: 10px 18px;
+  white-space: nowrap;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.overlayLang {
+  margin-top: 30px;
+}
+
+@media (max-width: 900px) {
+  .right .cta {
+    display: none;
+  }
+}
+
+.toggle {
+  display: none;
+  background: none;
+  border: 1px solid var(--ink);
+  padding: 9px 14px;
+  color: var(--ink);
+  font-size: 11px;
+}
+
+@media (max-width: 900px) {
+  .nav {
+    display: none;
+  }
+  .toggle {
+    display: block;
+  }
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 55;
+  background: var(--ink);
+  color: var(--paper);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s var(--ease);
+}
+
+.overlayOpen {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.overlayInner {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding-top: 60px;
+}
+
+.overlayInner nav {
+  width: 100%;
+}
+
+.overlayLink {
+  display: flex;
+  align-items: baseline;
+  gap: 22px;
+  text-decoration: none;
+  color: var(--paper);
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(250, 249, 245, 0.18);
+}
+
+.overlayLink:hover,
+.overlayLink.active {
+  color: var(--red-soft);
+}
+
+.overlayIndex {
+  font-size: 12px;
+  color: var(--red-soft);
+}
+
+.overlayLabel {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  font-size: clamp(28px, 6vw, 52px);
+  line-height: 1;
+}

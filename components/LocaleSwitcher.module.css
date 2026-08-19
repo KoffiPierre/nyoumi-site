@@ -1,0 +1,49 @@
+.switch {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.05em;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.sep {
+  color: var(--line);
+}
+
+.active {
+  color: var(--red);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.inactive {
+  color: var(--graphite);
+  text-decoration: none;
+}
+
+.inactive:hover {
+  color: var(--ink);
+}
+
+.dark .sep {
+  color: rgba(250, 249, 245, 0.3);
+}
+
+.dark .inactive {
+  color: #a39c8f;
+}
+
+.dark .inactive:hover {
+  color: var(--paper);
+}
+
+.dark .active {
+  color: var(--red-soft);
+}
