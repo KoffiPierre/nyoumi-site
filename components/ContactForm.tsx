@@ -43,8 +43,8 @@ export default function ContactForm({ locale }: ContactFormProps) {
     e.preventDefault();
     if (!validate()) return;
 
-    const subject = encodeURIComponent(form.subject || `${dict.contactForm.subject} — ${form.name}`);
-    const body = encodeURIComponent(`${form.message}\n\n— ${form.name} (${form.email})`);
+    const subject = encodeURIComponent(form.subject || `${dict.contactForm.subjectFallback} ${form.name}`);
+    const body = encodeURIComponent(`${form.message}\n\n${form.name} (${form.email})`);
     window.location.href = `mailto:${profile.email}?subject=${subject}&body=${body}`;
     setSent(true);
   }
@@ -53,25 +53,25 @@ export default function ContactForm({ locale }: ContactFormProps) {
     <form className={styles.form} onSubmit={handleSubmit} noValidate>
       <div className={styles.row}>
         <label className={styles.field}>
-          <span className="mono">{dict.contactForm.name}</span>
+          <span className={styles.fieldLabel}>{dict.contactForm.name}</span>
           <input type="text" value={form.name} onChange={(e) => update('name', e.target.value)} aria-invalid={!!errors.name} />
           {errors.name && <em className={styles.error}>{errors.name}</em>}
         </label>
 
         <label className={styles.field}>
-          <span className="mono">{dict.contactForm.email}</span>
+          <span className={styles.fieldLabel}>{dict.contactForm.email}</span>
           <input type="email" value={form.email} onChange={(e) => update('email', e.target.value)} aria-invalid={!!errors.email} />
           {errors.email && <em className={styles.error}>{errors.email}</em>}
         </label>
       </div>
 
       <label className={styles.field}>
-        <span className="mono">{dict.contactForm.subject}</span>
+        <span className={styles.fieldLabel}>{dict.contactForm.subject}</span>
         <input type="text" value={form.subject} onChange={(e) => update('subject', e.target.value)} />
       </label>
 
       <label className={styles.field}>
-        <span className="mono">{dict.contactForm.message}</span>
+        <span className={styles.fieldLabel}>{dict.contactForm.message}</span>
         <textarea rows={5} value={form.message} onChange={(e) => update('message', e.target.value)} aria-invalid={!!errors.message} />
         {errors.message && <em className={styles.error}>{errors.message}</em>}
       </label>

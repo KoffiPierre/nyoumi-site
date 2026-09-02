@@ -8,17 +8,17 @@ import { Locale } from '@/types/content';
 
 const copy: Record<Locale, { label: string; title: string; lede: string; metaTitle: string; metaDesc: string }> = {
   fr: {
-    label: 'Revue de presse',
+    label: 'Presse',
     title: 'Ce que la presse en dit.',
-    lede: "Deux portraits signés Angèle Ebassa, parus dans DT News 237, revenant sur son parcours académique et sur l'agent conversationnel qu'il a conçu.",
-    metaTitle: 'Presse & médias',
+    lede: "Deux portraits parus dans DT News 237, sur son parcours académique et sur l'agent conversationnel qu'il a conçu.",
+    metaTitle: 'Presse',
     metaDesc: 'Articles et portraits publiés sur Dieudonné Nyoumi Mballa.',
   },
   en: {
-    label: 'Press coverage',
+    label: 'Press',
     title: 'What the press says.',
-    lede: "Two profiles by Angèle Ebassa, published in DT News 237, covering his academic path and the conversational agent he built.",
-    metaTitle: 'Press & media',
+    lede: 'Two profiles published in DT News 237, covering his academic path and the conversational agent he built.',
+    metaTitle: 'Press',
     metaDesc: 'Articles and profiles published about Dieudonné Nyoumi Mballa.',
   },
 };
@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: L
   const { locale } = await params;
   const profile = profileByLocale[locale];
   const c = copy[locale];
-  return { title: `${c.metaTitle} — ${profile.name}`, description: c.metaDesc };
+  return { title: `${profile.name} | ${c.metaTitle}`, description: c.metaDesc };
 }
 
 export default async function PressePage({ params }: { params: Promise<{ locale: Locale }> }) {
@@ -35,7 +35,7 @@ export default async function PressePage({ params }: { params: Promise<{ locale:
   const c = copy[locale];
   return (
     <Section>
-      <PageHeader index="04" label={c.label} title={c.title} lede={c.lede} />
+      <PageHeader label={c.label} title={c.title} lede={c.lede} />
       <Reveal>
         <PressGrid locale={locale} />
       </Reveal>

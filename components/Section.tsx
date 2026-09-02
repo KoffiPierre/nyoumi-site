@@ -3,16 +3,15 @@ import styles from './Section.module.css';
 
 interface SectionProps {
   children: ReactNode;
-  background?: 'paper' | 'dim' | 'ink' | 'red';
+  background?: 'paper' | 'alt' | 'ink';
   id?: string;
-  tight?: boolean;
 }
 
-export default function Section({ children, background = 'paper', id, tight }: SectionProps) {
+export default function Section({ children, background = 'paper', id }: SectionProps) {
   const bgClass = styles[background];
 
   return (
-    <section id={id} className={`${styles.section} ${bgClass} ${tight ? styles.tight : ''}`}>
+    <section id={id} className={`${styles.section} ${bgClass}`}>
       <div className="wrap">{children}</div>
     </section>
   );

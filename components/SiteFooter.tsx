@@ -3,7 +3,6 @@ import { getNavLinks } from '@/lib/nav';
 import { getDictionary } from '@/lib/dictionary';
 import { profileByLocale } from '@/data/profile';
 import { Locale } from '@/types/content';
-import TitleBlock from './TitleBlock';
 import styles from './SiteFooter.module.css';
 
 interface SiteFooterProps {
@@ -18,28 +17,29 @@ export default function SiteFooter({ locale }: SiteFooterProps) {
   return (
     <footer className={styles.footer}>
       <div className="wrap">
-        <TitleBlock
-          dark
-          className={styles.titleblock}
-          fields={[
-            { label: dict.titleblock.contact, value: profile.email, href: `mailto:${profile.email}`, span: 2 },
-            { label: dict.titleblock.phone, value: profile.phoneDisplay, href: `tel:${profile.phone}` },
-            { label: dict.titleblock.location, value: profile.location },
-            { label: dict.titleblock.languages, value: profile.languages.join(' · ') },
-          ]}
-        />
+        <div className={styles.top}>
+          <div>
+            <div className={styles.brand}>{profile.name}</div>
+            <p className={styles.tagline}>{profile.role}</p>
+          </div>
 
-        <div className={styles.sitemap}>
-          {navLinks.map((link, i) => (
-            <Link key={link.href} href={`/${locale}${link.href}`}>
-              <span className="mono">{String(i + 1).padStart(2, '0')}</span> {link.label}
-            </Link>
-          ))}
+          <nav className={styles.sitemap} aria-label="Sitemap">
+            {navLinks.map((link) => (
+              <Link key={link.href} href={`/${locale}${link.href}`}>
+                {link.label}
+              </Link>
+            ))}
+          </nav>
+
+          <div className={styles.reach}>
+            <a href={`mailto:${profile.email}`}>{profile.email}</a>
+            <a href={`tel:${profile.phone}`}>{profile.phoneDisplay}</a>
+            <span>{profile.location}</span>
+          </div>
         </div>
 
         <div className={styles.bottom}>
-          <span>© {new Date().getFullYear()} {profile.name}</span>
-          <span>{dict.footer.tagline}</span>
+          <span>© {new Date().getFullYear()} {profile.name}. {dict.footer.rights}</span>
         </div>
       </div>
     </footer>

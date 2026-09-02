@@ -58,6 +58,8 @@ export interface PressEntry {
   issue: string;
   date: string;
   image: string;
+  imageWidth: number;
+  imageHeight: number;
   slug: string;
 }
 

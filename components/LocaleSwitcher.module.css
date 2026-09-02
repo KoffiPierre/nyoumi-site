@@ -2,9 +2,8 @@
   display: flex;
   align-items: center;
   gap: 4px;
-  font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.05em;
+  font-size: 13px;
+  font-weight: 500;
 }
 
 .item {
@@ -18,13 +17,13 @@
 }
 
 .active {
-  color: var(--red);
+  color: var(--accent);
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .inactive {
-  color: var(--graphite);
+  color: var(--muted);
   text-decoration: none;
 }
 
@@ -33,11 +32,11 @@
 }
 
 .dark .sep {
-  color: rgba(250, 249, 245, 0.3);
+  color: rgba(250, 249, 246, 0.3);
 }
 
 .dark .inactive {
-  color: #a39c8f;
+  color: #a7ab9f;
 }
 
 .dark .inactive:hover {
@@ -45,5 +44,5 @@
 }
 
 .dark .active {
-  color: var(--red-soft);
+  color: var(--accent-soft);
 }

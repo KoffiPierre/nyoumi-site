@@ -2,7 +2,7 @@
 
 Site vitrine multi-pages, bilingue (Français / Anglais), construit en **Next.js 14 (App Router) + TypeScript**, avec une couche de contenu entièrement typée et séparée de l'affichage.
 
-**Direction créative : "Plans".** Le site emprunte au vocabulaire du plan technique d'ingénieur — cartouche de dessin, portrait annoté façon figure de brevet, parcours lu comme un journal des révisions, fiche technique pour les domaines d'expertise.
+**Direction créative : sobre et classique.** Typographie sérieuse (Source Serif 4 + Inter), palette neutre avec un seul accent (vert profond), mise en page simple et lisible. Aucune métaphore visuelle appuyée (pas de "fiche technique", pas de jargon d'ingénieur) — le site se concentre sur le contenu et la crédibilité professionnelle.
 
 ## Démarrage local
 
@@ -25,26 +25,18 @@ npm i -g vercel
 vercel deploy --prod
 ```
 
-Vercel détecte automatiquement Next.js — aucune configuration additionnelle n'est nécessaire.
+Toutes les dépendances sont épinglées en version exacte dans `package.json` (pas de `^`) pour éviter tout conflit de résolution au déploiement.
 
 ---
 
 ## Bilinguisme FR / EN
 
-Le site utilise le système de routing par segment de locale de Next.js (`app/[locale]/...`), le standard recommandé pour l'i18n en App Router :
+Le site utilise le système de routing par segment de locale de Next.js (`app/[locale]/...`) :
 
-- `/fr/...` et `/en/...` sont deux jeux de pages statiques générés au build (14 pages au total : 7 routes × 2 langues).
-- `middleware.ts` redirige automatiquement `/` vers `/fr` (ou `/en` si le navigateur du visiteur envoie `Accept-Language: en`).
-- Le sélecteur de langue (`components/LocaleSwitcher.tsx`, en haut à droite du header) bascule vers l'équivalent exact de la page courante dans l'autre langue.
-- Tout le contenu — données ET textes d'interface — existe en double, typé, dans `/data` et `/lib/dictionary.ts`. Il n'y a aucun texte codé en dur dans un composant.
-
-### Ajouter une troisième langue (ex. arabe)
-
-1. Ajouter `'ar'` à `locales` dans `lib/i18n.ts`.
-2. Ajouter la clé `ar: {...}` dans `lib/dictionary.ts` et dans chaque fichier `data/*.ts` (`profileByLocale`, `pillarsByLocale`, etc.).
-3. Ajouter `ar: {...}` dans les objets `copy` en tête de chaque `page.tsx`.
-
-TypeScript signalera à la compilation tout endroit où la nouvelle langue manque, grâce aux types `Record<Locale, ...>`.
+- `/fr/...` et `/en/...` sont deux jeux de pages statiques générés au build (17 pages au total).
+- `middleware.ts` redirige automatiquement `/` vers `/fr` (ou `/en` selon la langue du navigateur).
+- Le sélecteur de langue (`components/LocaleSwitcher.tsx`, header) bascule vers l'équivalent exact de la page courante.
+- Tout le contenu existe en double, typé, dans `/data` et `/lib/dictionary.ts`.
 
 ---
 
@@ -55,32 +47,29 @@ nyoumi-site/
 ├── middleware.ts              → détection/redirection de langue
 ├── app/
 │   ├── globals.css             → tokens de design (couleurs, typo, espacements)
-│   └── [locale]/                → TOUTES les routes vivent ici (fr/en)
-│       ├── layout.tsx            → vrai layout racine : <html lang>, polices, header/footer
+│   └── [locale]/                → toutes les routes (fr/en)
+│       ├── layout.tsx            → layout racine : <html lang>, polices, header/footer
 │       ├── page.tsx               → Accueil
-│       ├── parcours/page.tsx      → Parcours (journal des révisions)
+│       ├── parcours/page.tsx      → Parcours (timeline verticale)
 │       ├── expertise/page.tsx     → Expertise technique
-│       ├── formation/page.tsx     → Formation de cadres (Afrique Compétences) — NOUVEAU
+│       ├── formation/page.tsx     → Formation de cadres (Afrique Compétences)
 │       ├── presse/page.tsx        → Presse & médias
 │       ├── ouvrage/page.tsx       → Ouvrage & publications
 │       ├── contact/page.tsx       → Contact (formulaire + coordonnées)
 │       └── not-found.tsx          → 404 sur mesure, bilingue
 │
-├── components/                 → chaque composant reçoit `locale` en prop quand il affiche
-│   │                              du contenu localisé (voir tableau ci-dessous)
+├── components/
 │   ├── SiteHeader.tsx, SiteFooter.tsx, LocaleSwitcher.tsx
-│   ├── Hero.tsx                  → cartouche + portrait annoté (éléments signature)
-│   ├── TitleBlock.tsx             → cartouche technique réutilisable
-│   ├── PillarGrid.tsx, Timeline.tsx, SkillGrid.tsx, PressGrid.tsx, BookFeature.tsx, Sommaire.tsx
+│   ├── Hero.tsx                  → nom, accroche, portrait, deux boutons
+│   ├── Lightbox.tsx               → clic pour agrandir une image (presse, formation)
+│   ├── PillarGrid.tsx, Timeline.tsx, SkillGrid.tsx, PressGrid.tsx, BookFeature.tsx
 │   ├── ContactForm.tsx            → formulaire avec validation (client component)
-│   ├── FolioRail.tsx              → index de marge à scroll-spy (accueil)
-│   ├── PullQuote.tsx, DimensionDivider.tsx, Folio.tsx
+│   ├── PullQuote.tsx              → citation en exergue
 │   └── Section.tsx, SectionHead.tsx, PageHeader.tsx
 │
 ├── data/                    ★ LE CONTENU ÉDITORIAL — tout est ici, dupliqué fr/en
-│   ├── profile.ts             → profileByLocale: Record<Locale, Profile>
-│   ├── pillars.ts, timeline.ts, skills.ts, press.ts, publications.ts, sommaire.ts
-│   └── training.ts             → pays formés, infos Afrique Compétences — NOUVEAU
+│   ├── profile.ts, pillars.ts, timeline.ts, skills.ts, press.ts, publications.ts
+│   └── training.ts             → pays formés, infos Afrique Compétences
 │
 ├── lib/
 │   ├── i18n.ts                 → locales disponibles, langue par défaut
@@ -109,27 +98,13 @@ TypeScript prévient à la compilation si une langue manque quelque part (`Recor
 
 ---
 
-## Les éléments signature ("Plans")
+## Cliquer pour agrandir (Lightbox)
 
-**`TitleBlock`** — le cartouche de dessin technique, repris dans le hero, le footer et la fiche du livre : Projet / Dessiné par / Date / Échelle / Feuille, rempli avec les vraies infos.
-
-**Portrait annoté** — dans le hero, le portrait est légendé comme une figure de brevet, avec des rappels numérotés pointant vers ses faits clés (doctorat, ingénieur d'État, blockchain, formateur de cadres).
-
-**`Timeline` → journal des révisions** — le parcours se lit comme l'historique de modifications d'un plan technique (REV. A, B, C...).
-
-**`PillarGrid` → fiche technique** — les domaines d'expertise en tableau de spécifications (§01, §02...).
-
-**`PressGrid` → annexes** — les articles de presse avec tampon "PJ" (pièce jointe).
-
-**`FolioRail`** — index de marge à gauche (desktop large, ≥1480px) qui suit le scroll et affiche "01/06", "02/06"...
-
-## Nouvelle page : Formation de cadres
-
-`/formation` présente l'activité de formateur pour Afrique Compétences : introduction, cartouche programme (client, thème, dates), liste des huit pays représentés (Sénégal, Guinée, Tchad, Cameroun, Maroc, Burkina Faso, Congo, Gabon), et une galerie de deux photos de session.
+Les vignettes de presse (`/presse`) et les photos de formation (`/formation`) s'ouvrent en plein écran, en pleine résolution, au clic — via `components/Lightbox.tsx`. Fermeture au clic extérieur ou à la touche Échap.
 
 ## Formulaire de contact
 
-`components/ContactForm.tsx` valide les champs puis ouvre un `mailto:` pré-rempli — un filet fonctionnel, pas la solution finale. Pour un vrai envoi serveur sur Vercel :
+`components/ContactForm.tsx` valide les champs puis ouvre un `mailto:` pré-rempli. Pour un vrai envoi serveur sur Vercel :
 
 ```bash
 npm install resend
@@ -145,7 +120,7 @@ export async function POST(req: Request) {
   await resend.emails.send({
     from: 'contact@tondomaine.com',
     to: 'youmi.dieu95@gmail.com',
-    subject: subject || `Contact — ${name}`,
+    subject: subject || `Message de ${name}`,
     replyTo: email,
     text: message,
   });
@@ -153,17 +128,19 @@ export async function POST(req: Request) {
 }
 ```
 
+Puis remplacer le `window.location.href = mailto:...` dans `ContactForm.tsx` par un `fetch('/api/contact', ...)`.
+
 ## Ce qui est déjà géré
 
 - **TypeScript strict** de bout en bout, y compris la cohérence fr/en (`Record<Locale, ...>`).
-- **Bilingue** : 14 pages statiques générées au build, redirection automatique, sélecteur de langue qui préserve la page courante.
-- **Responsive complet**, FolioRail masqué sous 1480px.
+- **Bilingue** : 17 pages statiques générées au build, redirection automatique, sélecteur de langue qui préserve la page courante.
+- **Responsive complet**.
 - **Accessibilité** : focus visible, `prefers-reduced-motion` respecté.
-- **SEO par page et par langue** : chaque route exporte ses propres `metadata` selon la locale.
+- **SEO par page et par langue** : chaque route exporte ses propres `metadata`.
 - **Performance** : `next/image`, CSS Modules, build 100% statique.
 
 ## Suggestions pour la suite (non incluses)
 
 - Favicon + image Open Graph (1200×630), déclinée fr/en.
 - Branchement réel du formulaire de contact (voir ci-dessus).
-- `hreflang` avancé / sitemap.xml multilingue si le référencement international devient prioritaire.
+- D'autres photos si le client souhaite enrichir davantage certaines pages.

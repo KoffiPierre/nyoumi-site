@@ -7,7 +7,7 @@ const fr: SkillGroup[] = [
     title: 'Intelligence artificielle',
     items: [
       'Machine Learning (supervisé, non-supervisé, RL)',
-      'Deep Learning — CNN, RNN, Transformers',
+      'Deep Learning (CNN, RNN, Transformers)',
       'Modèles génératifs',
       'Graph Neural Networks',
       'Agents Speech-to-Speech',
@@ -29,7 +29,7 @@ const fr: SkillGroup[] = [
     eyebrow: 'Blockchain & Web3',
     title: 'Distributed ledger',
     items: [
-      'Hedera Hashgraph — HCS / HTS / HFS',
+      'Hedera Hashgraph (HCS, HTS, HFS)',
       'Smart contracts & Solidity',
       'Hardhat, dApps, portefeuilles Web3',
       'Tokenisation & gouvernance réseau',
@@ -41,7 +41,7 @@ const fr: SkillGroup[] = [
     title: 'Ingénierie logicielle',
     items: [
       'React, Next.js, React Native',
-      'Node.js — Express, NestJS',
+      'Node.js (Express, NestJS)',
       'Python · PostgreSQL · MongoDB',
       'JavaScript / TypeScript',
     ],
@@ -55,7 +55,7 @@ const en: SkillGroup[] = [
     title: 'Artificial intelligence',
     items: [
       'Machine Learning (supervised, unsupervised, RL)',
-      'Deep Learning — CNN, RNN, Transformers',
+      'Deep Learning (CNN, RNN, Transformers)',
       'Generative models',
       'Graph Neural Networks',
       'Speech-to-Speech agents',
@@ -77,7 +77,7 @@ const en: SkillGroup[] = [
     eyebrow: 'Blockchain & Web3',
     title: 'Distributed ledger',
     items: [
-      'Hedera Hashgraph — HCS / HTS / HFS',
+      'Hedera Hashgraph (HCS, HTS, HFS)',
       'Smart contracts & Solidity',
       'Hardhat, dApps, Web3 wallets',
       'Tokenization & network governance',
@@ -89,7 +89,7 @@ const en: SkillGroup[] = [
     title: 'Software engineering',
     items: [
       'React, Next.js, React Native',
-      'Node.js — Express, NestJS',
+      'Node.js (Express, NestJS)',
       'Python · PostgreSQL · MongoDB',
       'JavaScript / TypeScript',
     ],

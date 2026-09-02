@@ -8,18 +8,18 @@ import { Locale } from '@/types/content';
 
 const copy: Record<Locale, { label: string; title: string; lede: string; metaTitle: string; metaDesc: string }> = {
   fr: {
-    label: 'Chronologie',
+    label: 'Parcours',
     title: 'Une trajectoire construite pas à pas.',
-    lede: "Du Cameroun au Maroc — ingénierie de terrain, recherche doctorale, formation de cadres et enseignement se sont construits en parallèle, jamais en substitution les uns des autres.",
+    lede: "Du Cameroun au Maroc, l'ingénierie de terrain, la recherche doctorale, la formation de cadres et l'enseignement se sont construits en parallèle, jamais l'un au détriment de l'autre.",
     metaTitle: 'Parcours',
-    metaDesc: "Du Cameroun au Maroc — trajectoire académique et professionnelle de Dieudonné Nyoumi Mballa, entre ingénierie énergétique, blockchain, formation de cadres et recherche doctorale.",
+    metaDesc: "Le parcours académique et professionnel de Dieudonné Nyoumi Mballa, entre ingénierie énergétique, blockchain, formation de cadres et recherche doctorale.",
   },
   en: {
-    label: 'Timeline',
+    label: 'Career',
     title: 'A career built step by step.',
-    lede: 'From Cameroon to Morocco — fieldwork engineering, doctoral research, executive training and teaching, built in parallel rather than in succession.',
+    lede: 'From Cameroon to Morocco, fieldwork engineering, doctoral research, executive training and teaching were built in parallel, never at the expense of one another.',
     metaTitle: 'Career',
-    metaDesc: 'From Cameroon to Morocco — the academic and professional path of Dieudonné Nyoumi Mballa, across energy engineering, blockchain, executive training and doctoral research.',
+    metaDesc: 'The academic and professional path of Dieudonné Nyoumi Mballa, across energy engineering, blockchain, executive training and doctoral research.',
   },
 };
 
@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: L
   const { locale } = await params;
   const profile = profileByLocale[locale];
   const c = copy[locale];
-  return { title: `${c.metaTitle} — ${profile.name}`, description: c.metaDesc };
+  return { title: `${profile.name} | ${c.metaTitle}`, description: c.metaDesc };
 }
 
 export default async function ParcoursPage({ params }: { params: Promise<{ locale: Locale }> }) {
@@ -35,7 +35,7 @@ export default async function ParcoursPage({ params }: { params: Promise<{ local
   const c = copy[locale];
   return (
     <Section>
-      <PageHeader index="01" label={c.label} title={c.title} lede={c.lede} />
+      <PageHeader label={c.label} title={c.title} lede={c.lede} />
       <Reveal>
         <Timeline locale={locale} />
       </Reveal>

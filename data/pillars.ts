@@ -6,14 +6,14 @@ const fr: Pillar[] = [
     eyebrow: 'Systèmes énergétiques',
     title: "IA appliquée à l'énergie",
     description:
-      "Modélisation, optimisation et simulation de systèmes énergétiques intelligents — réseaux, prévision et intégration des énergies renouvelables, au cœur de sa thèse à l'Université Hassan II de Casablanca.",
+      "Modélisation, optimisation et simulation de systèmes énergétiques intelligents : réseaux, prévision et intégration des énergies renouvelables, au cœur de sa thèse à l'Université Hassan II de Casablanca.",
   },
   {
     id: 'blockchain',
     eyebrow: 'Distributed Ledger',
     title: 'Blockchain & Web3',
     description:
-      "Conception de solutions sur Hedera Hashgraph, contrats intelligents et applications décentralisées — de la tokenisation à l'architecture fullstack, jusqu'à l'agent conversationnel développé seul pour MarocVente.",
+      "Conception de solutions sur Hedera Hashgraph, contrats intelligents et applications décentralisées, de la tokenisation à l'architecture fullstack, jusqu'à l'agent conversationnel développé seul pour MarocVente.",
   },
   {
     id: 'formation-cadres',
@@ -37,14 +37,14 @@ const en: Pillar[] = [
     eyebrow: 'Energy systems',
     title: 'AI applied to energy',
     description:
-      "Modeling, optimization and simulation of smart energy systems — grids, forecasting and renewable energy integration, at the core of his doctoral research at Hassan II University, Casablanca.",
+      "Modeling, optimization and simulation of smart energy systems: grids, forecasting and renewable energy integration, at the core of his doctoral research at Hassan II University, Casablanca.",
   },
   {
     id: 'blockchain',
     eyebrow: 'Distributed ledger',
     title: 'Blockchain & Web3',
     description:
-      'Building solutions on Hedera Hashgraph, smart contracts and decentralized applications — from tokenization to fullstack architecture, up to the conversational agent he built solo for MarocVente.',
+      'Building solutions on Hedera Hashgraph, smart contracts and decentralized applications, from tokenization to fullstack architecture, up to the conversational agent he built solo for MarocVente.',
   },
   {
     id: 'formation-cadres',

@@ -3,13 +3,13 @@
   justify-content: space-between;
   align-items: flex-end;
   gap: 40px;
-  margin-bottom: 40px;
+  margin-bottom: 44px;
   flex-wrap: wrap;
 }
 
 .title {
-  font-size: clamp(28px, 3.6vw, 44px);
-  max-width: 600px;
+  font-size: clamp(26px, 3.2vw, 38px);
+  max-width: 560px;
 }
 
 .right {
@@ -21,8 +21,8 @@
 }
 
 .desc {
-  color: var(--graphite);
-  font-size: 13.5px;
+  color: var(--ink-soft);
+  font-size: 14px;
   line-height: 1.6;
   margin: 0;
   text-align: right;

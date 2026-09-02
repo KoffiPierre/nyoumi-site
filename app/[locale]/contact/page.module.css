@@ -1,13 +1,13 @@
 .grid {
   display: grid;
   grid-template-columns: 0.8fr 1.2fr;
-  gap: 60px;
+  gap: 56px;
 }
 
 @media (max-width: 800px) {
   .grid {
     grid-template-columns: 1fr;
-    gap: 36px;
+    gap: 34px;
   }
 }
 
@@ -16,7 +16,7 @@
 }
 
 .list li {
-  padding: 22px 0;
+  padding: 20px 0;
   border-bottom: 1px solid var(--line);
   display: flex;
   justify-content: space-between;
@@ -25,11 +25,9 @@
 }
 
 .list li span:first-child {
-  font-family: var(--font-mono);
-  font-size: 11.5px;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--ink-soft);
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--muted);
   white-space: nowrap;
 }
 
@@ -43,23 +41,23 @@
 }
 
 .list li a:hover {
-  color: var(--oxblood);
+  color: var(--accent);
 }
 
 .formPanel {
   background: var(--paper-raised);
   border: 1px solid var(--line);
-  padding: 40px;
+  border-radius: var(--radius);
+  padding: 38px;
 }
 
 @media (max-width: 560px) {
   .formPanel {
-    padding: 28px 22px;
+    padding: 26px 22px;
   }
 }
 
 .formTitle {
-  font-size: 24px;
-  font-style: italic;
-  margin-bottom: 26px;
+  font-size: 21px;
+  margin-bottom: 24px;
 }

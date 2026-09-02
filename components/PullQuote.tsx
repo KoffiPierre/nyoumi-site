@@ -3,17 +3,15 @@ import styles from './PullQuote.module.css';
 interface PullQuoteProps {
   text: string;
   attribution?: string;
-  tag?: string;
 }
 
-export default function PullQuote({ text, attribution, tag = 'NOTE' }: PullQuoteProps) {
+export default function PullQuote({ text, attribution }: PullQuoteProps) {
   return (
     <div className="wrap">
-      <div className={styles.box}>
-        <span className={`mono ${styles.tag}`}>{tag}</span>
+      <blockquote className={styles.quote}>
         <p className={styles.text}>{text}</p>
-        {attribution && <p className={`mono ${styles.attribution}`}>— {attribution}</p>}
-      </div>
+        {attribution && <cite className={styles.attribution}>{attribution}</cite>}
+      </blockquote>
     </div>
   );
 }

@@ -4,7 +4,7 @@ const fr: TimelineEntry[] = [
   {
     id: 'ensam',
     period: '2016 — 2021',
-    title: 'Master Spécialisé — Ingénierie des systèmes énergétiques',
+    title: 'Master Spécialisé en ingénierie des systèmes énergétiques',
     org: 'ENSAM · Casablanca',
     description:
       "Formation en ingénierie des systèmes énergétiques et électriques, complétée par une spécialisation en programmation et génie informatique. Diplômé ingénieur d'État en 2021.",
@@ -13,7 +13,7 @@ const fr: TimelineEntry[] = [
   {
     id: 'enseignement',
     period: '2018 — 2024',
-    title: 'Enseignant — Mathématiques & Physique',
+    title: 'Enseignant en mathématiques et physique',
     org: "Établissement d'enseignement supérieur, Casablanca",
     description:
       "Enseignement en 1ère et 2ème année universitaire, animation de travaux pratiques, participation à des colloques internationaux pour enrichir sa pratique pédagogique.",
@@ -22,7 +22,7 @@ const fr: TimelineEntry[] = [
   {
     id: 'hedera',
     period: '2021 — 2025',
-    title: 'Blockchain & Web3 — Formation complète et stage',
+    title: 'Formation complète et stage en Blockchain & Web3',
     org: 'EDGE Business School × Hedera Hashgraph (Suisse) · Casablanca',
     description:
       "Conception de solutions sur technologies DLT, en particulier Hedera Hashgraph (HCS, HTS, HFS) : déploiement de contrats intelligents, création de tokens et architectures de consensus.",
@@ -40,7 +40,7 @@ const fr: TimelineEntry[] = [
   {
     id: 'phd',
     period: '2022 — Jan. 2026',
-    title: 'Doctorat PhD — Intelligence Artificielle',
+    title: 'Doctorat PhD en intelligence artificielle',
     org: 'Université Hassan II de Casablanca',
     description:
       "Thèse sur l'IA appliquée aux systèmes énergétiques intelligents : modélisation, optimisation et simulation de systèmes complexes. Obtenue avec mention très honorable et félicitations du jury.",
@@ -58,7 +58,7 @@ const fr: TimelineEntry[] = [
   {
     id: 'marocvente',
     period: 'Nov. 2025 — Mai 2026',
-    title: 'AI Engineer — Agent conversationnel Speech-to-Speech',
+    title: 'Ingénieur IA, agent conversationnel Speech-to-Speech',
     org: 'MarocVente, Casablanca',
     description:
       "Conception en autonomie d'un agent vocal conçu pour faire gagner du temps aux équipes clients, incluant le fine-tuning du modèle et la rédaction d'un article technique documentant le projet.",
@@ -70,7 +70,7 @@ const en: TimelineEntry[] = [
   {
     id: 'ensam',
     period: '2016 — 2021',
-    title: 'Specialized Master — Energy Systems Engineering',
+    title: 'Specialized Master in Energy Systems Engineering',
     org: 'ENSAM · Casablanca',
     description:
       'Training in energy and electrical systems engineering, complemented by a specialization in programming and computer engineering. Graduated as a State Engineer in 2021.',
@@ -79,7 +79,7 @@ const en: TimelineEntry[] = [
   {
     id: 'enseignement',
     period: '2018 — 2024',
-    title: 'Lecturer — Mathematics & Physics',
+    title: 'Lecturer in Mathematics and Physics',
     org: 'Higher education institution, Casablanca',
     description:
       'Teaching first- and second-year university courses, running lab sessions, and presenting at international conferences to sharpen his teaching practice.',
@@ -88,7 +88,7 @@ const en: TimelineEntry[] = [
   {
     id: 'hedera',
     period: '2021 — 2025',
-    title: 'Blockchain & Web3 — Full training and internship',
+    title: 'Full training and internship in Blockchain & Web3',
     org: 'EDGE Business School × Hedera Hashgraph (Switzerland) · Casablanca',
     description:
       'Designing solutions on DLT technologies, particularly Hedera Hashgraph (HCS, HTS, HFS): deploying smart contracts, creating tokens and consensus architectures.',
@@ -106,7 +106,7 @@ const en: TimelineEntry[] = [
   {
     id: 'phd',
     period: '2022 — Jan. 2026',
-    title: 'PhD — Artificial Intelligence',
+    title: 'PhD in Artificial Intelligence',
     org: 'Hassan II University, Casablanca',
     description:
       'Doctoral research on AI applied to smart energy systems: modeling, optimization and simulation of complex systems. Awarded with highest honors and jury commendation.',
@@ -124,7 +124,7 @@ const en: TimelineEntry[] = [
   {
     id: 'marocvente',
     period: 'Nov. 2025 — May 2026',
-    title: 'AI Engineer — Speech-to-Speech Conversational Agent',
+    title: 'AI Engineer, Speech-to-Speech Conversational Agent',
     org: 'MarocVente, Casablanca',
     description:
       'Solo design of a voice agent built to save client teams time, including model fine-tuning and a technical article documenting the project.',

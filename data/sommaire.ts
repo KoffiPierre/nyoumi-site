@@ -5,7 +5,7 @@ const fr: SommaireEntry[] = [
     index: '01',
     href: '/parcours',
     title: 'Parcours',
-    teaser: "Du Cameroun au Maroc — enseignement, ingénierie blockchain et doctorat menés de front.",
+    teaser: "Du Cameroun au Maroc : enseignement, ingénierie blockchain et doctorat menés de front.",
   },
   {
     index: '02',
@@ -23,7 +23,7 @@ const fr: SommaireEntry[] = [
     index: '04',
     href: '/presse',
     title: 'Presse',
-    teaser: "Deux portraits dans DT News 237 — parcours académique et innovation numérique.",
+    teaser: "Deux portraits dans DT News 237, sur son parcours académique et son innovation numérique.",
   },
   {
     index: '05',
@@ -44,7 +44,7 @@ const en: SommaireEntry[] = [
     index: '01',
     href: '/parcours',
     title: 'Career',
-    teaser: 'From Cameroon to Morocco — teaching, blockchain engineering and a PhD pursued in parallel.',
+    teaser: 'From Cameroon to Morocco: teaching, blockchain engineering and a PhD pursued in parallel.',
   },
   {
     index: '02',
@@ -62,7 +62,7 @@ const en: SommaireEntry[] = [
     index: '04',
     href: '/presse',
     title: 'Press',
-    teaser: 'Two profiles in DT News 237 — academic career and digital innovation.',
+    teaser: 'Two profiles in DT News 237, on his academic career and his digital innovation.',
   },
   {
     index: '05',

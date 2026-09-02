@@ -12,6 +12,8 @@ const fr: PressEntry[] = [
     issue: 'N°200',
     date: '3 juin 2026',
     image: '/images/presse-parcours.jpg',
+    imageWidth: 1094,
+    imageHeight: 1600,
   },
   {
     id: 'innovation',
@@ -24,6 +26,8 @@ const fr: PressEntry[] = [
     issue: 'N°205',
     date: '10 juin 2026',
     image: '/images/presse-innovation.jpg',
+    imageWidth: 876,
+    imageHeight: 1280,
   },
 ];
 
@@ -39,6 +43,8 @@ const en: PressEntry[] = [
     issue: 'No. 200',
     date: 'June 3, 2026',
     image: '/images/presse-parcours.jpg',
+    imageWidth: 1094,
+    imageHeight: 1600,
   },
   {
     id: 'innovation',
@@ -51,6 +57,8 @@ const en: PressEntry[] = [
     issue: 'No. 205',
     date: 'June 10, 2026',
     image: '/images/presse-innovation.jpg',
+    imageWidth: 876,
+    imageHeight: 1280,
   },
 ];
 

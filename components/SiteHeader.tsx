@@ -18,83 +18,58 @@ export default function SiteHeader({ locale }: SiteHeaderProps) {
   const [open, setOpen] = useState(false);
   const navLinks = getNavLinks(locale);
   const dict = getDictionary(locale);
+  const localPath = pathname.replace(new RegExp(`^/${locale}`), '') || '/';
 
   useEffect(() => {
     setOpen(false);
   }, [pathname]);
 
-  useEffect(() => {
-    document.body.style.overflow = open ? 'hidden' : '';
-    return () => {
-      document.body.style.overflow = '';
-    };
-  }, [open]);
-
-  const localPath = pathname.replace(new RegExp(`^/${locale}`), '') || '/';
-  const activeIndex = Math.max(navLinks.findIndex((l) => l.href === localPath), 0);
-  const sheetNumber = String(activeIndex + 1).padStart(3, '0');
-
   return (
-    <>
-      <header className={styles.header}>
-        <div className={`wrap ${styles.bar}`}>
-          <Link href={`/${locale}`} className={styles.plate}>
-            <span className={`mono ${styles.id}`}>PLAN N&deg;{sheetNumber}</span>
-            <span className={styles.name}>Nyoumi&nbsp;Mballa</span>
-          </Link>
+    <header className={styles.header}>
+      <div className={`wrap ${styles.bar}`}>
+        <Link href={`/${locale}`} className={styles.brand}>
+          Dieudonné Nyoumi Mballa
+        </Link>
 
-          <nav className={styles.nav}>
-            <ul>
-              {navLinks.slice(0, -1).map((link) => (
-                <li key={link.href}>
-                  <Link href={`/${locale}${link.href}`} className={localPath === link.href ? styles.active : ''}>
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
-
-          <div className={styles.right}>
-            <LocaleSwitcher locale={locale} />
-            <Link href={`/${locale}/contact`} className={`btn btn-primary ${styles.cta}`}>
-              {dict.nav.contact}
-            </Link>
-          </div>
-
-          <button
-            className={styles.toggle}
-            aria-label={open ? 'Close' : 'Open'}
-            aria-expanded={open}
-            onClick={() => setOpen((v) => !v)}
-          >
-            <span className="mono">{open ? '×' : 'MENU'}</span>
-          </button>
-        </div>
-      </header>
-
-      <div className={`${styles.overlay} ${open ? styles.overlayOpen : ''}`}>
-        <div className={`wrap ${styles.overlayInner}`}>
-          <nav aria-label="Sitemap">
-            {navLinks.map((link, i) => {
-              const active = localPath === link.href;
-              return (
-                <Link
-                  key={link.href}
-                  href={`/${locale}${link.href}`}
-                  className={`${styles.overlayLink} ${active ? styles.active : ''}`}
-                >
-                  <span className={`mono ${styles.overlayIndex}`}>PL. {String(i + 1).padStart(3, '0')}</span>
-                  <span className={styles.overlayLabel}>{link.label}</span>
+        <nav className={styles.nav}>
+          <ul>
+            {navLinks.slice(0, -1).map((link) => (
+              <li key={link.href}>
+                <Link href={`/${locale}${link.href}`} className={localPath === link.href ? styles.active : ''}>
+                  {link.label}
                 </Link>
-              );
-            })}
-          </nav>
-          <div className={styles.overlayLang}>
-            <LocaleSwitcher locale={locale} dark />
-          </div>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        <div className={styles.right}>
+          <LocaleSwitcher locale={locale} />
+          <Link href={`/${locale}/contact`} className={`btn btn-primary ${styles.cta}`}>
+            {dict.nav.contact}
+          </Link>
+        </div>
+
+        <button
+          className={styles.toggle}
+          aria-label={open ? 'Close menu' : 'Open menu'}
+          aria-expanded={open}
+          onClick={() => setOpen((v) => !v)}
+        >
+          <span className={`${styles.bun} ${open ? styles.bunOpen : ''}`} />
+        </button>
+      </div>
+
+      <div className={`${styles.mobilePanel} ${open ? styles.mobileOpen : ''}`}>
+        {navLinks.map((link) => (
+          <Link key={link.href} href={`/${locale}${link.href}`} className={localPath === link.href ? styles.active : ''}>
+            {link.label}
+          </Link>
+        ))}
+        <div className={styles.mobileLang}>
+          <LocaleSwitcher locale={locale} />
         </div>
       </div>
-    </>
+    </header>
   );
 }

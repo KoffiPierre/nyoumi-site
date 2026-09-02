@@ -4,70 +4,48 @@
   left: 0;
   right: 0;
   z-index: 60;
-  background: rgba(250, 249, 245, 0.92);
-  backdrop-filter: blur(6px);
-  border-bottom: 1px solid var(--ink);
+  background: rgba(250, 249, 246, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
 }
 
 .bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 60px;
-  gap: 20px;
+  height: 72px;
+  gap: 24px;
 }
 
-.plate {
-  display: flex;
-  align-items: center;
-  gap: 14px;
+.brand {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 17px;
   text-decoration: none;
   color: var(--ink);
-  min-width: 0;
-}
-
-.id {
-  font-size: 10.5px;
-  color: var(--red);
-  border: 1px solid var(--red);
-  padding: 3px 8px;
   white-space: nowrap;
-}
-
-.name {
-  font-family: var(--font-display);
-  font-size: 18px;
-  text-transform: uppercase;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .nav ul {
   display: flex;
-  gap: 26px;
+  gap: 30px;
   list-style: none;
 }
 
 .nav a {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
   text-decoration: none;
-  color: var(--graphite);
+  font-size: 14.5px;
+  font-weight: 500;
+  color: var(--ink-soft);
   transition: color 0.2s var(--ease);
+  padding-bottom: 3px;
+  border-bottom: 1px solid transparent;
 }
 
 .nav a:hover,
 .nav a.active {
-  color: var(--red);
-}
-
-.cta {
-  font-size: 11px;
-  padding: 10px 18px;
-  white-space: nowrap;
+  color: var(--ink);
+  border-bottom-color: var(--accent);
 }
 
 .right {
@@ -76,27 +54,55 @@
   gap: 22px;
 }
 
-.overlayLang {
-  margin-top: 30px;
-}
-
-@media (max-width: 900px) {
-  .right .cta {
-    display: none;
-  }
+.cta {
+  padding: 10px 20px;
+  font-size: 13.5px;
 }
 
 .toggle {
   display: none;
   background: none;
-  border: 1px solid var(--ink);
-  padding: 9px 14px;
-  color: var(--ink);
-  font-size: 11px;
+  border: none;
+  width: 36px;
+  height: 36px;
+  position: relative;
 }
 
-@media (max-width: 900px) {
-  .nav {
+.bun,
+.bun::before,
+.bun::after {
+  content: '';
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  height: 1.5px;
+  background: var(--ink);
+  transition: transform 0.25s var(--ease), opacity 0.25s var(--ease);
+}
+
+.bun {
+  top: 17px;
+}
+.bun::before {
+  top: -7px;
+}
+.bun::after {
+  top: 7px;
+}
+
+.bunOpen {
+  background: transparent;
+}
+.bunOpen::before {
+  transform: translateY(7px) rotate(45deg);
+}
+.bunOpen::after {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+@media (max-width: 860px) {
+  .nav,
+  .right {
     display: none;
   }
   .toggle {
@@ -104,56 +110,47 @@
   }
 }
 
-.overlay {
+.mobilePanel {
   position: fixed;
-  inset: 0;
-  z-index: 55;
-  background: var(--ink);
-  color: var(--paper);
+  top: 72px;
+  left: 0;
+  right: 0;
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  padding: 10px 24px 24px;
+  transform: translateY(-8px);
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.35s var(--ease);
+  transition: all 0.25s var(--ease);
 }
 
-.overlayOpen {
+.mobileOpen {
+  transform: translateY(0);
   opacity: 1;
   pointer-events: auto;
 }
 
-.overlayInner {
-  height: 100%;
-  display: flex;
-  align-items: center;
-  padding-top: 60px;
-}
-
-.overlayInner nav {
-  width: 100%;
-}
-
-.overlayLink {
-  display: flex;
-  align-items: baseline;
-  gap: 22px;
+.mobilePanel a {
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line-soft);
   text-decoration: none;
-  color: var(--paper);
-  padding: 16px 0;
-  border-bottom: 1px solid rgba(250, 249, 245, 0.18);
+  color: var(--ink);
+  font-size: 15px;
+  font-weight: 500;
 }
 
-.overlayLink:hover,
-.overlayLink.active {
-  color: var(--red-soft);
+.mobilePanel a.active {
+  color: var(--accent);
 }
 
-.overlayIndex {
-  font-size: 12px;
-  color: var(--red-soft);
+.mobileLang {
+  padding-top: 16px;
 }
 
-.overlayLabel {
-  font-family: var(--font-display);
-  text-transform: uppercase;
-  font-size: clamp(28px, 6vw, 52px);
-  line-height: 1;
+@media (min-width: 861px) {
+  .mobilePanel {
+    display: none;
+  }
 }

@@ -1,22 +1,22 @@
 :root {
-  /* ---- Palette: "Plans" — technical drawing, ink on drafting paper ---- */
-  --paper: #faf9f5;
-  --paper-line: #f2f0e8;
+  /* ---- Palette: refined, quiet, professional — no thematic gimmick ---- */
+  --ink: #1b1f1d;
+  --ink-soft: #4a4f4b;
+  --paper: #faf9f6;
+  --paper-alt: #f1efe9;
   --paper-raised: #ffffff;
-  --ink: #1a1a1a;
-  --red: #bf3126;
-  --red-soft: #e8b3ac;
-  --graphite: #5c5c5c;
-  --graphite-soft: #8a8a82;
-  --line: rgba(26, 26, 26, 0.18);
-  --line-soft: rgba(26, 26, 26, 0.09);
-  --radius: 0px;
-  --max-width: 1220px;
-  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --accent: #3c6e58;
+  --accent-soft: #6b9880;
+  --accent-deep: #24463a;
+  --line: rgba(27, 31, 29, 0.12);
+  --line-soft: rgba(27, 31, 29, 0.07);
+  --muted: #6b6f6a;
+  --radius: 3px;
+  --max-width: 1160px;
+  --ease: cubic-bezier(0.25, 0.6, 0.35, 1);
 
-  --font-display: 'Big Shoulders Display', sans-serif;
-  --font-body: 'Archivo', system-ui, sans-serif;
-  --font-mono: 'IBM Plex Mono', 'SF Mono', monospace;
+  --font-display: 'Source Serif 4', Georgia, serif;
+  --font-body: 'Inter', system-ui, sans-serif;
 }
 
 * {
@@ -47,19 +47,16 @@ body {
   color: var(--ink);
   font-family: var(--font-body);
   font-size: 16px;
-  line-height: 1.6;
+  line-height: 1.65;
   -webkit-font-smoothing: antialiased;
-  background-image: linear-gradient(var(--paper-line) 1px, transparent 1px),
-    linear-gradient(90deg, var(--paper-line) 1px, transparent 1px);
-  background-size: 8px 8px;
 }
 
 h1, h2, h3, h4 {
   font-family: var(--font-display);
-  font-weight: 700;
+  font-weight: 600;
   margin: 0;
-  text-transform: uppercase;
   letter-spacing: -0.01em;
+  color: var(--ink);
 }
 
 p {
@@ -88,7 +85,7 @@ button {
 .wrap {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 0 36px;
+  padding: 0 32px;
 }
 
 @media (max-width: 640px) {
@@ -97,76 +94,33 @@ button {
   }
 }
 
-.mono {
-  font-family: var(--font-mono);
-  letter-spacing: 0.02em;
-}
-
-/* Folio label — "§ 0X — LABEL" reference tag used throughout */
-.folio {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.08em;
+.eyebrow {
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.09em;
   text-transform: uppercase;
-  color: var(--red);
+  color: var(--accent);
   display: block;
-  margin-bottom: 10px;
-}
-
-.folio-num {
-  color: var(--red);
+  margin-bottom: 12px;
 }
 
 :focus-visible {
-  outline: 2px solid var(--red);
+  outline: 2px solid var(--accent);
   outline-offset: 3px;
 }
 
-/* Registration cross marks — drafting alignment ticks */
-.reg {
-  position: absolute;
-  width: 16px;
-  height: 16px;
-  pointer-events: none;
-}
-.reg::before,
-.reg::after {
-  content: '';
-  position: absolute;
-  background: var(--line);
-}
-.reg::before {
-  left: 50%;
-  top: 0;
-  bottom: 0;
-  width: 1px;
-  transform: translateX(-50%);
-}
-.reg::after {
-  top: 50%;
-  left: 0;
-  right: 0;
-  height: 1px;
-  transform: translateY(-50%);
-}
-.reg.tl { top: 14px; left: 14px; }
-.reg.tr { top: 14px; right: 14px; }
-.reg.bl { bottom: 14px; left: 14px; }
-.reg.br { bottom: 14px; right: 14px; }
-
 .btn {
-  font-family: var(--font-mono);
-  font-size: 12px;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 14.5px;
   text-decoration: none;
-  padding: 14px 24px;
+  padding: 13px 26px;
   border-radius: var(--radius);
   display: inline-flex;
   align-items: center;
   gap: 8px;
   transition: all 0.25s var(--ease);
-  border: 1px solid var(--ink);
+  border: 1px solid transparent;
 }
 
 .btn-primary {
@@ -174,65 +128,31 @@ button {
   color: var(--paper);
 }
 .btn-primary:hover {
-  background: var(--red);
-  border-color: var(--red);
-}
-
-.btn-ghost {
-  border: 1px solid var(--line-soft);
-  color: var(--paper);
-  background: transparent;
-}
-.btn-ghost:hover {
-  border-color: var(--red-soft);
-  color: var(--red-soft);
+  background: var(--accent-deep);
 }
 
 .btn-outline {
-  border: 1px solid var(--ink);
+  border: 1px solid var(--line);
   color: var(--ink);
   background: transparent;
 }
 .btn-outline:hover {
-  border-color: var(--red);
-  color: var(--red);
+  border-color: var(--ink);
+  background: var(--paper-alt);
+}
+
+.btn-ghost {
+  border: 1px solid rgba(250, 249, 246, 0.3);
+  color: var(--paper);
+  background: transparent;
+}
+.btn-ghost:hover {
+  border-color: var(--paper);
+  background: rgba(250, 249, 246, 0.08);
 }
 
 .rule {
   border: none;
   border-top: 1px solid var(--line);
   margin: 0;
-}
-
-/* Dimension-line section divider */
-.dim {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  padding: 6px 0;
-}
-.dim-line {
-  flex: 1;
-  height: 1px;
-  background: var(--line);
-  position: relative;
-}
-.dim-line::before,
-.dim-line::after {
-  content: '';
-  position: absolute;
-  top: -4px;
-  width: 1px;
-  height: 9px;
-  background: var(--ink);
-}
-.dim-line::before { left: 0; }
-.dim-line::after { right: 0; }
-.dim-label {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--graphite);
-  white-space: nowrap;
 }

@@ -22,10 +22,10 @@ export async function generateMetadata({
   const locale: Locale = isLocale(rawLocale) ? rawLocale : 'fr';
   const profile = profileByLocale[locale];
   return {
-    title: `${profile.name} — ${profile.title}`,
+    title: `${profile.name} | ${profile.title}`,
     description: profile.lede,
     openGraph: {
-      title: `${profile.name} — ${profile.title}`,
+      title: `${profile.name} | ${profile.title}`,
       description: profile.lede,
       locale: locale === 'fr' ? 'fr_FR' : 'en_US',
       type: 'website',
@@ -53,7 +53,7 @@ export default async function LocaleLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;600;700;800&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=Inter:wght@400;500;600;700&display=swap"
           rel="stylesheet"
         />
       </head>
