@@ -87,7 +87,29 @@ Pour ajouter un troisième article de presse : copie un bloc existant dans `data
 
 ---
 
-## 📱 Comment ajouter ou modifier les réseaux sociaux
+## 💡 Comment ajouter une publication (idée, réflexion)
+
+Le client peut publier des textes courts sur `/publications`, indépendamment des articles de presse. Tout se passe dans **`data/ideas.ts`**.
+
+Pour ajouter une nouvelle publication, copie un bloc dans **les deux tableaux `fr` et `en`** :
+
+```ts
+{
+  id: 'mon-nouvel-article',            // identifiant unique
+  slug: 'mon-nouvel-article',           // détermine l'adresse : /publications/mon-nouvel-article
+  title: 'Titre de la publication',
+  date: '2026',                         // ou une date plus précise, ex. 'Mars 2026'
+  excerpt: 'Résumé en une phrase, affiché dans la liste.',
+  body: [
+    'Premier paragraphe.',
+    'Deuxième paragraphe.',
+  ],
+},
+```
+
+La page liste (`/publications`) et la page dédiée (`/publications/mon-nouvel-article`) se génèrent automatiquement, dans les deux langues. Une publication "Bienvenue" sert d'exemple de départ — à remplacer ou compléter avec les vrais textes du client.
+
+---
 
 Tout se passe dans **un seul fichier : `data/social.ts`**.
 
@@ -131,6 +153,8 @@ nyoumi-site/
 │       ├── presse/page.tsx        → liste des articles
 │       ├── presse/[slug]/page.tsx → page dédiée par article — NOUVEAU
 │       ├── ouvrage/page.tsx
+│       ├── publications/page.tsx  → liste des idées publiées — NOUVEAU
+│       ├── publications/[slug]/page.tsx → page dédiée par publication — NOUVEAU
 │       ├── contact/page.tsx
 │       └── not-found.tsx
 │
@@ -145,6 +169,7 @@ nyoumi-site/
 ├── data/                    ★ LE CONTENU — tout est ici, rien en dur dans le code
 │   ├── profile.ts, pillars.ts, timeline.ts, skills.ts, publications.ts
 │   ├── press.ts                  → articles de presse (avec `slug` pour la page dédiée)
+│   ├── ideas.ts                    → publications / idées (avec `slug` pour la page dédiée) — NOUVEAU
 │   ├── training.ts                → infos générales Afrique Compétences
 │   ├── formationGallery.ts        → galerie photos/vidéos de formation — NOUVEAU
 │   └── social.ts                  → liens réseaux sociaux — NOUVEAU

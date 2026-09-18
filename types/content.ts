@@ -81,3 +81,12 @@ export interface SommaireEntry {
 export interface TrainingCountry {
   name: string;
 }
+
+export interface IdeaPost {
+  id: string;
+  slug: string;
+  title: string;
+  date: string;
+  excerpt: string;
+  body: string[];
+}

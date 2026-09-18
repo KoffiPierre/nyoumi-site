@@ -9,6 +9,7 @@ export const dictionary = {
       formation: 'Formation',
       presse: 'Presse',
       ouvrage: 'Ouvrage',
+      publications: 'Publications',
       contact: 'Contact',
     },
     hero: {
@@ -54,6 +55,11 @@ export const dictionary = {
       program: 'Programme',
       dates: 'Dates',
     },
+    publications: {
+      readMore: 'Lire la suite',
+      back: '← Retour aux publications',
+      publishedOn: 'Publié le',
+    },
     langSwitch: 'EN',
   },
   en: {
@@ -64,6 +70,7 @@ export const dictionary = {
       formation: 'Training',
       presse: 'Press',
       ouvrage: 'Book',
+      publications: 'Publications',
       contact: 'Contact',
     },
     hero: {
@@ -108,6 +115,11 @@ export const dictionary = {
       client: 'Partner',
       program: 'Program',
       dates: 'Dates',
+    },
+    publications: {
+      readMore: 'Read more',
+      back: '← Back to publications',
+      publishedOn: 'Published on',
     },
     langSwitch: 'FR',
   },
