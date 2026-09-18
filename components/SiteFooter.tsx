@@ -3,6 +3,7 @@ import { getNavLinks } from '@/lib/nav';
 import { getDictionary } from '@/lib/dictionary';
 import { profileByLocale } from '@/data/profile';
 import { Locale } from '@/types/content';
+import SocialLinks from './SocialLinks';
 import styles from './SiteFooter.module.css';
 
 interface SiteFooterProps {
@@ -35,6 +36,7 @@ export default function SiteFooter({ locale }: SiteFooterProps) {
             <a href={`mailto:${profile.email}`}>{profile.email}</a>
             <a href={`tel:${profile.phone}`}>{profile.phoneDisplay}</a>
             <span>{profile.location}</span>
+            <SocialLinks className={styles.social} />
           </div>
         </div>
 

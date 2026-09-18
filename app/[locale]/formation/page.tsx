@@ -6,26 +6,18 @@ import Reveal from '@/components/Reveal';
 import Lightbox from '@/components/Lightbox';
 import { profileByLocale } from '@/data/profile';
 import { trainingByLocale } from '@/data/training';
+import { formationGallery } from '@/data/formationGallery';
 import { getDictionary } from '@/lib/dictionary';
 import { Locale } from '@/types/content';
 import styles from './page.module.css';
 
-const galleryImages = [
-  { src: '/images/formation-session.jpg', width: 1080, height: 1069 },
-  { src: '/images/formation-groupe.jpg', width: 1536, height: 1409 },
-  { src: '/images/formation-flipchart.jpg', width: 1599, height: 1599 },
-  { src: '/images/formation-presentation.jpg', width: 1920, height: 1920 },
-];
-
-const copy: Record<Locale, { label: string; title: string; lede: string; metaTitle: string; metaDesc: string; galleryLabel: string; captions: string[] }> = {
+const copy: Record<Locale, { label: string; title: string; lede: string; metaTitle: string; metaDesc: string }> = {
   fr: {
     label: 'Formation de cadres',
     title: "Former les cadres à l'IA, à l'échelle du continent.",
     lede: "En parallèle de la recherche et de l'ingénierie, il accompagne des équipes de direction dans l'appropriation de l'intelligence artificielle.",
     metaTitle: 'Formation de cadres',
     metaDesc: "Dieudonné Nyoumi Mballa forme des cadres et équipes de direction venus de huit pays africains à l'intelligence artificielle appliquée à leurs métiers, pour Afrique Compétences.",
-    galleryLabel: 'En session',
-    captions: ['En session, Afrique Compétences', 'Avec les cadres formés', 'Animation au paperboard', 'Restitution des ateliers'],
   },
   en: {
     label: 'Executive Training',
@@ -33,8 +25,6 @@ const copy: Record<Locale, { label: string; title: string; lede: string; metaTit
     lede: 'Alongside research and engineering, he helps management teams put artificial intelligence to work.',
     metaTitle: 'Executive Training',
     metaDesc: 'Dieudonné Nyoumi Mballa trains executives and management teams from eight African countries in applying artificial intelligence to their fields, for Afrique Compétences.',
-    galleryLabel: 'In session',
-    captions: ['In session, Afrique Compétences', 'With the trained executives', 'Facilitating at the flipchart', 'Workshop debrief'],
   },
 };
 
@@ -98,22 +88,37 @@ export default async function FormationPage({ params }: { params: Promise<{ loca
       <Section background="alt">
         <Reveal>
           <div className={styles.gallery}>
-            {galleryImages.map((img, i) => (
-              <Lightbox
-                key={img.src}
-                src={img.src}
-                alt={c.captions[i] ?? c.galleryLabel}
-                width={img.width}
-                height={img.height}
-                closeLabel={dict.press.close}
-                triggerClassName={styles.galleryTrigger}
-              >
-                <div className={styles.galleryItem}>
-                  <Image src={img.src} alt={c.captions[i] ?? c.galleryLabel} fill sizes="(max-width: 700px) 100vw, 50vw" className={styles.galleryImg} />
-                  <span className={styles.galleryCaption}>{c.captions[i]}</span>
-                </div>
-              </Lightbox>
-            ))}
+            {formationGallery.map((item) => {
+              const country = item.country[locale];
+              const caption = item.caption[locale];
+              const thumbSrc = item.kind === 'video' ? item.poster! : item.src;
+
+              return (
+                <Lightbox
+                  key={item.id}
+                  src={item.src}
+                  alt={caption}
+                  width={item.width}
+                  height={item.height}
+                  kind={item.kind === 'video' ? 'video' : 'image'}
+                  closeLabel={dict.press.close}
+                  triggerClassName={styles.galleryTrigger}
+                >
+                  <div className={styles.galleryItem}>
+                    <Image src={thumbSrc} alt={caption} fill sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 33vw" className={styles.galleryImg} />
+                    {item.kind === 'video' && (
+                      <span className={styles.playBadge} aria-hidden="true">
+                        ▶
+                      </span>
+                    )}
+                    <div className={styles.galleryFooter}>
+                      <span className={styles.galleryCountry}>{country}</span>
+                      <span className={styles.galleryCaption}>{caption}</span>
+                    </div>
+                  </div>
+                </Lightbox>
+              );
+            })}
           </div>
         </Reveal>
       </Section>

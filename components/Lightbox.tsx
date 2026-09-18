@@ -9,12 +9,13 @@ interface LightboxProps {
   alt: string;
   width: number;
   height: number;
+  kind?: 'image' | 'video';
   children: ReactNode;
   triggerClassName?: string;
   closeLabel?: string;
 }
 
-export default function Lightbox({ src, alt, width, height, children, triggerClassName, closeLabel = 'Close' }: LightboxProps) {
+export default function Lightbox({ src, alt, width, height, kind = 'image', children, triggerClassName, closeLabel = 'Close' }: LightboxProps) {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
@@ -42,7 +43,12 @@ export default function Lightbox({ src, alt, width, height, children, triggerCla
             ×
           </button>
           <div className={styles.stage} onClick={(e) => e.stopPropagation()}>
-            <Image src={src} alt={alt} width={width} height={height} className={styles.image} sizes="90vw" />
+            {kind === 'video' ? (
+              // eslint-disable-next-line jsx-a11y/media-has-caption -- controls are provided by the native player
+              <video src={src} controls autoPlay playsInline className={styles.video} />
+            ) : (
+              <Image src={src} alt={alt} width={width} height={height} className={styles.image} sizes="90vw" />
+            )}
           </div>
         </div>
       )}

@@ -1,0 +1,28 @@
+.row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid rgba(250, 249, 246, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #c9cdc7;
+  transition: all 0.2s ease;
+}
+
+.icon svg {
+  width: 16px;
+  height: 16px;
+}
+
+.icon:hover {
+  color: #fff;
+  border-color: var(--accent-soft);
+  background: rgba(250, 249, 246, 0.06);
+}

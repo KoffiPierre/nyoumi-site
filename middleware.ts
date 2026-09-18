@@ -10,6 +10,11 @@ function getPreferredLocale(request: NextRequest): string {
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
+  // Never touch static files (anything with a file extension) or Next internals.
+  if (pathname.startsWith('/_next') || pathname.startsWith('/api') || /\.[a-zA-Z0-9]+$/.test(pathname)) {
+    return;
+  }
+
   const hasLocale = locales.some((locale) => pathname === `/${locale}` || pathname.startsWith(`/${locale}/`));
   if (hasLocale) return;
 
@@ -20,5 +25,8 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/((?!_next|images|favicon.ico|api).*)'],
+  // Excludes _next, api, and any request path that has a file extension
+  // (images, videos, favicon, robots.txt, etc.) — those are always static
+  // files and must never be prefixed with a locale.
+  matcher: ['/((?!_next|api|.*\\..*).*)'],
 };

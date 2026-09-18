@@ -1,8 +1,6 @@
 # Nyoumi Mballa — Site (Next.js / TypeScript / FR-EN)
 
-Site vitrine multi-pages, bilingue (Français / Anglais), construit en **Next.js 14 (App Router) + TypeScript**, avec une couche de contenu entièrement typée et séparée de l'affichage.
-
-**Direction créative : sobre et classique.** Typographie sérieuse (Source Serif 4 + Inter), palette neutre avec un seul accent (vert profond), mise en page simple et lisible. Aucune métaphore visuelle appuyée (pas de "fiche technique", pas de jargon d'ingénieur) — le site se concentre sur le contenu et la crédibilité professionnelle.
+Site vitrine multi-pages, bilingue (Français / Anglais), construit en **Next.js 15 + TypeScript**, avec une couche de contenu entièrement typée et séparée de l'affichage.
 
 ## Démarrage local
 
@@ -14,133 +12,166 @@ npm run dev
 → http://localhost:3000 (redirige automatiquement vers `/fr`)
 
 ```bash
-npm run build   # build de production
+npm run build   # build de production — à lancer avant chaque push pour repérer les erreurs
 npm run start   # sert le build de production en local
 ```
 
 ## Déploiement sur Vercel
 
-```bash
-npm i -g vercel
-vercel deploy --prod
+Chaque `git push` sur `main` redéploie automatiquement. Aucune configuration Vercel additionnelle n'est nécessaire.
+
+---
+
+## 🖼️ Comment ajouter ou changer des images
+
+**1. Dépose le fichier image** dans le bon dossier de `public/images/` :
+   - Photos de formation → `public/images/formation/`
+   - Autres photos (portrait, presse, livre...) → `public/images/`
+
+**2. Note ses dimensions.** Sur Windows : clic droit sur le fichier → Propriétés → onglet Détails → "Dimensions". Tu auras besoin de la largeur et la hauteur en pixels.
+
+**3. Ajoute une entrée dans le fichier de données correspondant** — jamais directement dans une page :
+
+Pour la galerie de la page **Formation**, ouvre `data/formationGallery.ts` et ajoute un bloc à la fin du tableau `formationGallery` :
+
+```ts
+{
+  id: 'g10',                                    // identifiant unique, jamais utilisé ailleurs
+  kind: 'photo',
+  src: '/images/formation/formation-10.jpg',    // chemin exact du fichier déposé à l'étape 1
+  width: 1080,                                   // largeur réelle en pixels (étape 2)
+  height: 1350,                                  // hauteur réelle en pixels (étape 2)
+  country: { fr: 'Sénégal', en: 'Senegal' },     // pays affiché en bas de la photo
+  caption: { fr: 'Session à Dakar', en: 'Session in Dakar' },
+},
 ```
 
-Toutes les dépendances sont épinglées en version exacte dans `package.json` (pas de `^`) pour éviter tout conflit de résolution au déploiement.
+C'est tout — la photo apparaît automatiquement sur `/formation`, dans les deux langues, avec le pays affiché en permanence en bas de l'image, et s'ouvre en grand au clic.
+
+## 🎬 Comment ajouter une vidéo
+
+**1.** Dépose le fichier `.mp4` dans `public/videos/`.
+
+**2.** Génère une image d'aperçu (une image fixe qui s'affiche avant que la vidéo soit lancée). Le plus simple si tu n'as pas d'outil : ouvre la vidéo, fais une capture d'écran d'un moment qui donne envie de cliquer, et enregistre-la dans `public/images/formation/` (par exemple `formation-video-03-poster.jpg`).
+
+**3.** Ajoute une entrée dans `data/formationGallery.ts`, avec `kind: 'video'` et le champ `poster` :
+
+```ts
+{
+  id: 'v03',
+  kind: 'video',
+  src: '/videos/formation-03.mp4',
+  poster: '/images/formation/formation-video-03-poster.jpg',
+  width: 720,                                    // dimensions de l'image d'aperçu (poster)
+  height: 1280,
+  country: { fr: 'Gabon', en: 'Gabon' },
+  caption: { fr: 'Extrait de la session', en: 'Session excerpt' },
+},
+```
+
+## 🌍 Comment changer le pays (ou la légende) affiché sous une photo
+
+Ouvre `data/formationGallery.ts`. Chaque photo/vidéo a un bloc `country: { fr: '...', en: '...' }`. Modifie simplement le texte entre guillemets.
+
+**Important — à faire avant la mise en ligne définitive :** plusieurs entrées ont actuellement un pays provisoire marqué **"À confirmer"** (ou "Maroc — à confirmer" pour les 4 premières, qui semblent avoir été prises au bureau de Casablanca). Ce sont des valeurs que j'ai mises en attendant que le client précise le vrai pays de chaque photo — à remplacer avant de publier.
 
 ---
 
-## Bilinguisme FR / EN
+## 📰 Les articles de presse ouvrent maintenant une vraie page
 
-Le site utilise le système de routing par segment de locale de Next.js (`app/[locale]/...`) :
+Avant, cliquer sur une photo de journal l'ouvrait juste en grand par-dessus la page (une "lightbox"). Maintenant, cliquer **redirige vers une page dédiée** à cet article : `/presse/[nom-de-larticle]`.
 
-- `/fr/...` et `/en/...` sont deux jeux de pages statiques générés au build (17 pages au total).
-- `middleware.ts` redirige automatiquement `/` vers `/fr` (ou `/en` selon la langue du navigateur).
-- Le sélecteur de langue (`components/LocaleSwitcher.tsx`, header) bascule vers l'équivalent exact de la page courante.
-- Tout le contenu existe en double, typé, dans `/data` et `/lib/dictionary.ts`.
+Pour modifier le contenu d'un article, tout se passe dans `data/press.ts` — rien à toucher dans le code de la page elle-même. Le champ `slug` détermine l'adresse de la page (ex. `slug: 'un-ingenieur-camerounais-en-ia'` → page accessible à `/fr/presse/un-ingenieur-camerounais-en-ia`).
+
+Pour ajouter un troisième article de presse : copie un bloc existant dans `data/press.ts` (dans les deux tableaux `fr` et `en`), donne-lui un nouveau `slug`, dépose l'image du journal dans `public/images/`, et remplis les autres champs. La page à cette adresse se génère automatiquement.
 
 ---
 
-## Architecture
+## 📱 Comment ajouter ou modifier les réseaux sociaux
+
+Tout se passe dans **un seul fichier : `data/social.ts`**.
+
+**Pour changer un lien existant**, remplace simplement l'URL :
+
+```ts
+{
+  id: 'linkedin',
+  label: 'LinkedIn',
+  url: 'https://www.linkedin.com/in/...',   // ← remplace ce lien
+},
+```
+
+**Pour ajouter Instagram** (ou un autre réseau), ajoute un bloc au tableau :
+
+```ts
+{ id: 'instagram', label: 'Instagram', url: 'https://www.instagram.com/tonpseudo/' },
+```
+
+L'icône Instagram existe déjà dans `components/SocialLinks.tsx` (elle attend juste qu'une entrée `id: 'instagram'` apparaisse dans `data/social.ts`). Pour tout autre réseau (X/Twitter, YouTube...), il faut aussi ajouter son icône dans ce fichier — demande-le-moi si besoin.
+
+**Pour supprimer un lien**, supprime simplement son bloc du tableau.
+
+Les icônes apparaissent automatiquement dans le pied de page, sur toutes les pages, dans les deux langues.
+
+---
+
+## Architecture générale
 
 ```
 nyoumi-site/
-├── middleware.ts              → détection/redirection de langue
+├── middleware.ts              → détection/redirection de langue (fr/en)
 ├── app/
 │   ├── globals.css             → tokens de design (couleurs, typo, espacements)
 │   └── [locale]/                → toutes les routes (fr/en)
-│       ├── layout.tsx            → layout racine : <html lang>, polices, header/footer
+│       ├── layout.tsx
 │       ├── page.tsx               → Accueil
-│       ├── parcours/page.tsx      → Parcours (timeline verticale)
-│       ├── expertise/page.tsx     → Expertise technique
-│       ├── formation/page.tsx     → Formation de cadres (Afrique Compétences)
-│       ├── presse/page.tsx        → Presse & médias
-│       ├── ouvrage/page.tsx       → Ouvrage & publications
-│       ├── contact/page.tsx       → Contact (formulaire + coordonnées)
-│       └── not-found.tsx          → 404 sur mesure, bilingue
+│       ├── parcours/page.tsx
+│       ├── expertise/page.tsx
+│       ├── formation/page.tsx     → galerie photos + vidéos
+│       ├── presse/page.tsx        → liste des articles
+│       ├── presse/[slug]/page.tsx → page dédiée par article — NOUVEAU
+│       ├── ouvrage/page.tsx
+│       ├── contact/page.tsx
+│       └── not-found.tsx
 │
 ├── components/
 │   ├── SiteHeader.tsx, SiteFooter.tsx, LocaleSwitcher.tsx
-│   ├── Hero.tsx                  → nom, accroche, portrait, deux boutons
-│   ├── Lightbox.tsx               → clic pour agrandir une image (presse, formation)
-│   ├── PillarGrid.tsx, Timeline.tsx, SkillGrid.tsx, PressGrid.tsx, BookFeature.tsx
-│   ├── ContactForm.tsx            → formulaire avec validation (client component)
-│   ├── PullQuote.tsx              → citation en exergue
-│   └── Section.tsx, SectionHead.tsx, PageHeader.tsx
+│   ├── SocialLinks.tsx           → icônes réseaux sociaux — NOUVEAU
+│   ├── Lightbox.tsx               → agrandissement au clic (photos ET vidéos)
+│   ├── Hero.tsx, PillarGrid.tsx, Timeline.tsx, SkillGrid.tsx, PressGrid.tsx, BookFeature.tsx
+│   ├── ContactForm.tsx, PullQuote.tsx, Section.tsx, SectionHead.tsx, PageHeader.tsx
+│   └── Reveal.tsx
 │
-├── data/                    ★ LE CONTENU ÉDITORIAL — tout est ici, dupliqué fr/en
-│   ├── profile.ts, pillars.ts, timeline.ts, skills.ts, press.ts, publications.ts
-│   └── training.ts             → pays formés, infos Afrique Compétences
+├── data/                    ★ LE CONTENU — tout est ici, rien en dur dans le code
+│   ├── profile.ts, pillars.ts, timeline.ts, skills.ts, publications.ts
+│   ├── press.ts                  → articles de presse (avec `slug` pour la page dédiée)
+│   ├── training.ts                → infos générales Afrique Compétences
+│   ├── formationGallery.ts        → galerie photos/vidéos de formation — NOUVEAU
+│   └── social.ts                  → liens réseaux sociaux — NOUVEAU
 │
 ├── lib/
-│   ├── i18n.ts                 → locales disponibles, langue par défaut
-│   ├── dictionary.ts            → tous les textes d'interface (boutons, libellés, formulaires)
-│   └── nav.ts                   → liens de navigation, localisés
+│   ├── i18n.ts, dictionary.ts, nav.ts
 │
-├── types/content.ts          → interfaces TypeScript (dont `Locale = 'fr' | 'en'`)
-└── public/images/             → portrait, photos de formation, couverture du livre, scans presse
+├── types/content.ts
+└── public/
+    ├── images/                    → portrait, presse, livre...
+    │   └── formation/              → photos de formation
+    └── videos/                     → vidéos de formation — NOUVEAU
 ```
-
-### Le contenu ne vit nulle part ailleurs que dans `/data` et `/lib/dictionary.ts`
-
-| Tu veux changer... | Tu modifies... |
-|---|---|
-| Le texte d'intro, l'email, le téléphone | `data/profile.ts` (les deux clés `fr` et `en`) |
-| Une étape du parcours | `data/timeline.ts` |
-| Une compétence | `data/skills.ts` |
-| Un article de presse | `data/press.ts` |
-| Le livre / les publications | `data/publications.ts` |
-| Les pays formés / infos Afrique Compétences | `data/training.ts` |
-| Un bouton, un libellé d'interface | `lib/dictionary.ts` |
-| Un lien de navigation | `lib/nav.ts` |
-| Les couleurs, la typo | `app/globals.css` (variables `:root`) |
-
-TypeScript prévient à la compilation si une langue manque quelque part (`Record<Locale, ...>` impose les deux clés `fr` et `en`).
-
----
-
-## Cliquer pour agrandir (Lightbox)
-
-Les vignettes de presse (`/presse`) et les photos de formation (`/formation`) s'ouvrent en plein écran, en pleine résolution, au clic — via `components/Lightbox.tsx`. Fermeture au clic extérieur ou à la touche Échap.
-
-## Formulaire de contact
-
-`components/ContactForm.tsx` valide les champs puis ouvre un `mailto:` pré-rempli. Pour un vrai envoi serveur sur Vercel :
-
-```bash
-npm install resend
-```
-
-```ts
-// app/api/contact/route.ts
-import { Resend } from 'resend';
-const resend = new Resend(process.env.RESEND_API_KEY);
-
-export async function POST(req: Request) {
-  const { name, email, subject, message } = await req.json();
-  await resend.emails.send({
-    from: 'contact@tondomaine.com',
-    to: 'youmi.dieu95@gmail.com',
-    subject: subject || `Message de ${name}`,
-    replyTo: email,
-    text: message,
-  });
-  return Response.json({ ok: true });
-}
-```
-
-Puis remplacer le `window.location.href = mailto:...` dans `ContactForm.tsx` par un `fetch('/api/contact', ...)`.
 
 ## Ce qui est déjà géré
 
-- **TypeScript strict** de bout en bout, y compris la cohérence fr/en (`Record<Locale, ...>`).
-- **Bilingue** : 17 pages statiques générées au build, redirection automatique, sélecteur de langue qui préserve la page courante.
-- **Responsive complet**.
-- **Accessibilité** : focus visible, `prefers-reduced-motion` respecté.
-- **SEO par page et par langue** : chaque route exporte ses propres `metadata`.
-- **Performance** : `next/image`, CSS Modules, build 100% statique.
+- **TypeScript strict**, cohérence fr/en garantie à la compilation.
+- **0 vulnérabilité** (`npm audit`) — dépendances à jour et verrouillées.
+- **Bilingue**, **responsive**, **accessible** (focus visible, `prefers-reduced-motion`).
+- **SEO** : `metadata` par page et par langue, y compris pour chaque article de presse.
 
-## Suggestions pour la suite (non incluses)
+## Formulaire de contact
 
+`components/ContactForm.tsx` ouvre un `mailto:` pré-rempli. Pour un vrai envoi serveur, voir la section correspondante dans l'historique du projet ou demande-le-moi.
+
+## Suggestions pour la suite
+
+- Confirmer le vrai pays pour chaque photo/vidéo de formation (voir section dédiée ci-dessus).
+- Ajouter le lien Instagram dans `data/social.ts` dès qu'il est disponible.
 - Favicon + image Open Graph (1200×630), déclinée fr/en.
-- Branchement réel du formulaire de contact (voir ci-dessus).
-- D'autres photos si le client souhaite enrichir davantage certaines pages.
