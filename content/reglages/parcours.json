@@ -1,0 +1,88 @@
+{
+  "etapes": [
+    {
+      "periode": "2016 — 2021",
+      "periode_en": "2016 — 2021",
+      "titre": "Master Spécialisé en ingénierie des systèmes énergétiques",
+      "titre_en": "Specialized Master in Energy Systems Engineering",
+      "organisation": "ENSAM · Casablanca",
+      "organisation_en": "ENSAM · Casablanca",
+      "description": "Formation en ingénierie des systèmes énergétiques et électriques, complétée par une spécialisation en programmation et génie informatique. Diplômé ingénieur d'État en 2021.",
+      "description_en": "Training in energy and electrical systems engineering, complemented by a specialization in programming and computer engineering. Graduated as a State Engineer in 2021.",
+      "etiquette": "Formation",
+      "etiquette_en": "Education"
+    },
+    {
+      "periode": "2018 — 2024",
+      "periode_en": "2018 — 2024",
+      "titre": "Enseignant en mathématiques et physique",
+      "titre_en": "Lecturer in Mathematics and Physics",
+      "organisation": "Établissement d'enseignement supérieur, Casablanca",
+      "organisation_en": "Higher education institution, Casablanca",
+      "description": "Enseignement en 1ère et 2ème année universitaire, animation de travaux pratiques, participation à des colloques internationaux pour enrichir sa pratique pédagogique.",
+      "description_en": "Teaching first- and second-year university courses, running lab sessions, and presenting at international conferences to sharpen his teaching practice.",
+      "etiquette": "Enseignement",
+      "etiquette_en": "Teaching"
+    },
+    {
+      "periode": "2021 — 2025",
+      "periode_en": "2021 — 2025",
+      "titre": "Formation complète et stage en Blockchain & Web3",
+      "titre_en": "Full training and internship in Blockchain & Web3",
+      "organisation": "EDGE Business School × Hedera Hashgraph (Suisse) · Casablanca",
+      "organisation_en": "EDGE Business School × Hedera Hashgraph (Switzerland) · Casablanca",
+      "description": "Conception de solutions sur technologies DLT, en particulier Hedera Hashgraph (HCS, HTS, HFS) : déploiement de contrats intelligents, création de tokens et architectures de consensus.",
+      "description_en": "Designing solutions on DLT technologies, particularly Hedera Hashgraph (HCS, HTS, HFS): deploying smart contracts, creating tokens and consensus architectures.",
+      "etiquette": "Blockchain",
+      "etiquette_en": "Blockchain"
+    },
+    {
+      "periode": "2022 — 2025",
+      "periode_en": "2022 — 2025",
+      "titre": "Ingénieur FullStack Blockchain",
+      "titre_en": "FullStack Blockchain Engineer",
+      "organisation": "Mfti · Remote",
+      "organisation_en": "Mfti · Remote",
+      "description": "Développement d'interfaces React.js / Next.js, conception d'API RESTful sécurisées, intégration de bases relationnelles et non-relationnelles, gestion complète du cycle applicatif.",
+      "description_en": "Building React.js / Next.js interfaces, designing secure RESTful APIs, integrating relational and non-relational databases, owning the full application lifecycle.",
+      "etiquette": "Ingénierie",
+      "etiquette_en": "Engineering"
+    },
+    {
+      "periode": "2022 — Jan. 2026",
+      "periode_en": "2022 — Jan. 2026",
+      "titre": "Doctorat PhD en intelligence artificielle",
+      "titre_en": "PhD in Artificial Intelligence",
+      "organisation": "Université Hassan II de Casablanca",
+      "organisation_en": "Hassan II University, Casablanca",
+      "description": "Thèse sur l'IA appliquée aux systèmes énergétiques intelligents : modélisation, optimisation et simulation de systèmes complexes. Obtenue avec mention très honorable et félicitations du jury.",
+      "description_en": "Doctoral research on AI applied to smart energy systems: modeling, optimization and simulation of complex systems. Awarded with highest honors and jury commendation.",
+      "etiquette": "Recherche",
+      "etiquette_en": "Research"
+    },
+    {
+      "periode": "2025 — en cours",
+      "periode_en": "2025 — present",
+      "titre": "Formateur des Cadres",
+      "titre_en": "Executive Trainer",
+      "organisation": "Afrique Compétences · Casablanca",
+      "organisation_en": "Afrique Compétences · Casablanca",
+      "description": "Formation de cadres et équipes de direction venus du Sénégal, de Guinée, du Tchad, du Cameroun, du Maroc, du Burkina Faso, du Congo et du Gabon à l'intelligence artificielle appliquée à leurs secteurs métiers.",
+      "description_en": "Training executives and management teams from Senegal, Guinea, Chad, Cameroon, Morocco, Burkina Faso, Congo and Gabon in applying artificial intelligence to their fields.",
+      "etiquette": "Formation cadres",
+      "etiquette_en": "Executive training"
+    },
+    {
+      "periode": "Nov. 2025 — Mai 2026",
+      "periode_en": "Nov. 2025 — May 2026",
+      "titre": "Ingénieur IA, agent conversationnel Speech-to-Speech",
+      "titre_en": "AI Engineer, Speech-to-Speech Conversational Agent",
+      "organisation": "MarocVente, Casablanca",
+      "organisation_en": "MarocVente, Casablanca",
+      "description": "Conception en autonomie d'un agent vocal conçu pour faire gagner du temps aux équipes clients, incluant le fine-tuning du modèle et la rédaction d'un article technique documentant le projet.",
+      "description_en": "Solo design of a voice agent built to save client teams time, including model fine-tuning and a technical article documenting the project.",
+      "etiquette": "IA",
+      "etiquette_en": "AI"
+    }
+  ]
+}

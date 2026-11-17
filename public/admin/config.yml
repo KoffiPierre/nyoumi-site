@@ -1,0 +1,321 @@
+# ---------------------------------------------------------------------------
+# Espace d'administration du site (Decap CMS) — accessible sur /admin
+#
+# Chaque enregistrement crée un « commit » sur GitHub ; le site se reconstruit
+# alors tout seul sur Vercel (1 à 2 minutes) et la modification est en ligne.
+# La connexion (backend GitHub) est configurée dans public/admin/index.html.
+# ---------------------------------------------------------------------------
+
+locale: fr
+site_url: /
+display_url: /
+logo_url: /admin/logo.svg
+
+# Photos envoyées depuis l'administration
+media_folder: public/uploads
+public_folder: /uploads
+
+slug:
+  encoding: ascii
+  clean_accents: true
+  sanitize_replacement: '-'
+
+collections:
+  # =========================================================================
+  - name: activites
+    label: Activités
+    label_singular: activité
+    description: >-
+      Formations, conférences, rencontres et distinctions, avec leurs photos et vidéos.
+      Elles apparaissent sur la page « Activités » (la plus récente en premier) et,
+      si « À la une » est coché, sur la page d'accueil.
+    folder: content/activites
+    format: json
+    extension: json
+    create: true
+    delete: true
+    slug: '{{titre}}'
+    identifier_field: titre
+    summary: '{{date | date("DD/MM/YYYY")}} · {{titre}}'
+    sortable_fields: ['date', 'titre']
+    view_filters:
+      - { label: Formations, field: categorie, pattern: formation }
+      - { label: Conférences, field: categorie, pattern: conference }
+      - { label: Rencontres, field: categorie, pattern: rencontre }
+      - { label: Distinctions, field: categorie, pattern: distinction }
+      - { label: Brouillons, field: brouillon, pattern: true }
+    media_folder: /public/uploads/activites
+    public_folder: /uploads/activites
+    editor:
+      preview: false
+    fields:
+      - label: Titre
+        name: titre
+        widget: string
+        hint: "Ex. : Formation des ingénieurs de la DSI du Ministère de l'Économie et des Finances"
+      - label: Titre en anglais
+        name: titre_en
+        widget: string
+        required: false
+        hint: Si vous laissez vide, le titre français s'affiche aussi sur la version anglaise du site.
+      - label: Type d'activité
+        name: categorie
+        widget: select
+        default: formation
+        options:
+          - { label: Formation, value: formation }
+          - { label: Conférence / intervention, value: conference }
+          - { label: Rencontre, value: rencontre }
+          - { label: Distinction / diplôme, value: distinction }
+          - { label: Autre actualité, value: autre }
+      - { label: Date, name: date, widget: datetime, default: '{{now}}', format: YYYY-MM-DD, date_format: DD/MM/YYYY, time_format: false, picker_utc: true, hint: "Sert à classer les activités (la plus récente en premier). Pour plusieurs jours, mettez le premier jour." }
+      - label: Dates affichées
+        name: periode
+        widget: string
+        required: false
+        hint: "Ex. : Du 20 au 24 octobre 2026. Si vide, on affiche le mois et l'année de la date ci-dessus."
+      - { label: Dates affichées en anglais, name: periode_en, widget: string, required: false }
+      - label: Lieu
+        name: lieu
+        widget: string
+        required: false
+        hint: "Ex. : Yaoundé, Cameroun"
+      - { label: Lieu en anglais, name: lieu_en, widget: string, required: false }
+      - label: Partenaire / organisateur
+        name: partenaire
+        widget: string
+        required: false
+      - label: Résumé
+        name: resume
+        widget: text
+        hint: Une ou deux phrases, affichées sur la carte de l'activité.
+      - { label: Résumé en anglais, name: resume_en, widget: text, required: false }
+      - label: Texte complet
+        name: texte
+        widget: markdown
+        required: false
+        buttons: [bold, italic, link, heading-two, heading-three, quote, bulleted-list, numbered-list]
+        editor_components: []
+        hint: Le récit détaillé, affiché sur la page de l'activité.
+      - label: Texte complet en anglais
+        name: texte_en
+        widget: markdown
+        required: false
+        buttons: [bold, italic, link, heading-two, heading-three, quote, bulleted-list, numbered-list]
+        editor_components: []
+      - label: Photo de couverture
+        name: couverture
+        widget: image
+        required: false
+        choose_url: false
+        hint: Si vide, la première photo de la galerie sert de couverture.
+      - label: Photos
+        name: photos
+        label_singular: photo
+        widget: list
+        required: false
+        collapsed: true
+        summary: '{{fields.legende}}'
+        add_to_top: false
+        fields:
+          - { label: Photo, name: image, widget: image, choose_url: false }
+          - { label: Description, name: legende, widget: string, required: false }
+          - { label: Description en anglais, name: legende_en, widget: string, required: false }
+      - label: Vidéos
+        name: videos
+        label_singular: vidéo
+        widget: list
+        required: false
+        collapsed: true
+        summary: '{{fields.legende}}'
+        hint: Pour une vidéo de plus de 20 Mo, publiez-la sur YouTube et collez simplement le lien.
+        fields:
+          - label: Lien YouTube
+            name: youtube
+            widget: string
+            required: false
+            hint: "Ex. : https://www.youtube.com/watch?v=… (recommandé)"
+          - label: OU fichier vidéo .mp4 (moins de 20 Mo)
+            name: fichier
+            widget: file
+            required: false
+            choose_url: false
+          - label: Image d'aperçu (pour un fichier .mp4)
+            name: apercu
+            widget: image
+            required: false
+            choose_url: false
+          - { label: Description, name: legende, widget: string, required: false }
+          - { label: Description en anglais, name: legende_en, widget: string, required: false }
+      - label: À la une
+        name: a_la_une
+        widget: boolean
+        default: false
+        required: false
+        hint: Cochez pour mettre cette activité en avant sur la page d'accueil.
+      - label: Brouillon (masqué du site)
+        name: brouillon
+        widget: boolean
+        default: false
+        required: false
+        hint: Cochez pour préparer l'activité sans la montrer aux visiteurs.
+
+  # =========================================================================
+  - name: publications
+    label: Articles & réflexions
+    label_singular: article
+    description: Textes publiés sur la page « Publications ».
+    folder: content/publications
+    format: json
+    extension: json
+    create: true
+    delete: true
+    slug: '{{titre}}'
+    identifier_field: titre
+    summary: '{{date | date("DD/MM/YYYY")}} · {{titre}}'
+    sortable_fields: ['date', 'titre']
+    media_folder: /public/uploads/publications
+    public_folder: /uploads/publications
+    editor:
+      preview: false
+    fields:
+      - { label: Titre, name: titre, widget: string }
+      - { label: Titre en anglais, name: titre_en, widget: string, required: false }
+      - { label: Date, name: date, widget: datetime, default: '{{now}}', format: YYYY-MM-DD, date_format: DD/MM/YYYY, time_format: false, picker_utc: true }
+      - { label: Résumé, name: resume, widget: text, hint: Une ou deux phrases affichées dans la liste. }
+      - { label: Résumé en anglais, name: resume_en, widget: text, required: false }
+      - { label: Image, name: image, widget: image, required: false, choose_url: false }
+      - { label: Texte, name: texte, widget: markdown, editor_components: [image] }
+      - { label: Texte en anglais, name: texte_en, widget: markdown, required: false, editor_components: [image] }
+      - { label: Brouillon (masqué du site), name: brouillon, widget: boolean, default: false, required: false }
+
+  # =========================================================================
+  - name: presse
+    label: Presse
+    label_singular: article de presse
+    description: Articles de journaux et portraits parus dans les médias.
+    folder: content/presse
+    format: json
+    extension: json
+    create: true
+    delete: true
+    slug: '{{titre}}'
+    identifier_field: titre
+    summary: '{{media}} · {{titre}}'
+    sortable_fields: ['date', 'titre']
+    media_folder: /public/uploads/presse
+    public_folder: /uploads/presse
+    editor:
+      preview: false
+    fields:
+      - { label: Titre de l'article, name: titre, widget: string }
+      - { label: Titre en anglais, name: titre_en, widget: string, required: false }
+      - { label: Média / journal, name: media, widget: string, hint: "Ex. : DT News 237" }
+      - { label: Numéro, name: numero, widget: string, required: false, hint: "Ex. : N°200" }
+      - { label: Numéro en anglais, name: numero_en, widget: string, required: false, hint: "Ex. : No. 200" }
+      - { label: Date, name: date, widget: datetime, default: '{{now}}', format: YYYY-MM-DD, date_format: DD/MM/YYYY, time_format: false, picker_utc: true }
+      - { label: Rubrique, name: rubrique, widget: string, required: false, hint: "Ex. : Innovation numérique" }
+      - { label: Rubrique en anglais, name: rubrique_en, widget: string, required: false }
+      - { label: Résumé, name: resume, widget: text }
+      - { label: Résumé en anglais, name: resume_en, widget: text, required: false }
+      - { label: Image de l'article (scan ou capture), name: image, widget: image, choose_url: false }
+      - { label: Lien vers l'article en ligne, name: lien, widget: string, required: false }
+
+  # =========================================================================
+  - name: reglages
+    label: Profil & réglages
+    description: Informations générales, parcours et réseaux sociaux.
+    editor:
+      preview: false
+    files:
+      - name: profil
+        label: Profil (accueil, coordonnées)
+        file: content/reglages/profil.json
+        media_folder: /public/uploads/profil
+        public_folder: /uploads/profil
+        fields:
+          - { label: Nom complet, name: nom, widget: string }
+          - { label: Titre (sous le nom, en haut de l'accueil), name: titre, widget: string }
+          - { label: Titre en anglais, name: titre_en, widget: string, required: false }
+          - { label: Titre court (onglet du navigateur, Google), name: titre_court, widget: string }
+          - { label: Titre court en anglais, name: titre_court_en, widget: string, required: false }
+          - { label: Rôle (pied de page), name: role, widget: string }
+          - { label: Rôle en anglais, name: role_en, widget: string, required: false }
+          - { label: Texte de présentation (accueil), name: accroche, widget: text }
+          - { label: Texte de présentation en anglais, name: accroche_en, widget: text, required: false }
+          - { label: Photo portrait (accueil), name: portrait, widget: image, choose_url: false, hint: Photo verticale de préférence. }
+          - { label: Ville, name: ville, widget: string }
+          - { label: Ville en anglais, name: ville_en, widget: string, required: false }
+          - { label: Origine, name: origine, widget: string }
+          - { label: Origine en anglais, name: origine_en, widget: string, required: false }
+          - { label: Doctorat (court), name: doctorat, widget: string }
+          - { label: Doctorat en anglais, name: doctorat_en, widget: string, required: false }
+          - { label: Email, name: email, widget: string }
+          - { label: Téléphone (format international, sans espaces), name: telephone, widget: string, hint: "Ex. : +212766331322" }
+          - { label: Téléphone (tel qu'affiché), name: telephone_affiche, widget: string }
+          - { label: Adresse, name: adresse, widget: string }
+          - { label: Adresse en anglais, name: adresse_en, widget: string, required: false }
+          - { label: Langues parlées, name: langues, widget: string }
+          - { label: Langues parlées en anglais, name: langues_en, widget: string, required: false }
+          - label: Chiffres clés (accueil)
+            name: chiffres
+            widget: list
+            label_singular: chiffre
+            summary: '{{fields.valeur}} · {{fields.libelle}}'
+            max: 4
+            fields:
+              - { label: Valeur, name: valeur, widget: string, hint: "Ex. : 8" }
+              - { label: Libellé, name: libelle, widget: string, hint: "Ex. : pays africains représentés dans ses formations" }
+              - { label: Libellé en anglais, name: libelle_en, widget: string, required: false }
+          - label: Institutions & références (bandeau « Ils lui ont fait confiance »)
+            name: references
+            widget: list
+            label_singular: institution
+            field: { label: Nom, name: nom, widget: string }
+
+      - name: parcours
+        label: Parcours (étapes)
+        file: content/reglages/parcours.json
+        fields:
+          - label: Étapes
+            name: etapes
+            label_singular: étape
+            widget: list
+            summary: '{{fields.periode}} · {{fields.titre}}'
+            hint: De la plus ancienne à la plus récente.
+            fields:
+              - { label: Période, name: periode, widget: string, hint: "Ex. : 2022 — 2025" }
+              - { label: Période en anglais, name: periode_en, widget: string, required: false }
+              - { label: Intitulé, name: titre, widget: string }
+              - { label: Intitulé en anglais, name: titre_en, widget: string, required: false }
+              - { label: Organisation, name: organisation, widget: string }
+              - { label: Organisation en anglais, name: organisation_en, widget: string, required: false }
+              - { label: Description, name: description, widget: text }
+              - { label: Description en anglais, name: description_en, widget: text, required: false }
+              - { label: Étiquette, name: etiquette, widget: string, required: false, hint: "Ex. : Recherche" }
+              - { label: Étiquette en anglais, name: etiquette_en, widget: string, required: false }
+
+      - name: reseaux
+        label: Réseaux sociaux
+        file: content/reglages/reseaux.json
+        fields:
+          - label: Liens
+            name: liens
+            label_singular: lien
+            widget: list
+            summary: '{{fields.libelle}}'
+            fields:
+              - label: Réseau
+                name: reseau
+                widget: select
+                options:
+                  - { label: LinkedIn, value: linkedin }
+                  - { label: Facebook, value: facebook }
+                  - { label: Instagram, value: instagram }
+                  - { label: YouTube, value: youtube }
+                  - { label: X (Twitter), value: x }
+                  - { label: TikTok, value: tiktok }
+                  - { label: WhatsApp, value: whatsapp }
+                  - { label: Autre site, value: autre }
+              - { label: Nom affiché, name: libelle, widget: string }
+              - { label: Adresse du lien, name: url, widget: string, hint: Commence par https:// }

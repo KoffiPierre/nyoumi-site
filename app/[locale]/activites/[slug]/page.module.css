@@ -1,0 +1,126 @@
+.hero {
+  position: relative;
+  min-height: min(78vh, 640px);
+  display: flex;
+  align-items: flex-end;
+  background: var(--ink);
+  color: var(--on-dark);
+  overflow: hidden;
+}
+
+.heroImg {
+  object-fit: cover;
+  object-position: center 20%;
+}
+
+.heroShade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(14, 26, 38, 0.35) 0%, rgba(14, 26, 38, 0.2) 35%, rgba(14, 26, 38, 0.92) 100%),
+    linear-gradient(90deg, rgba(14, 26, 38, 0.6), transparent 70%);
+}
+
+.heroInner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding-top: 40px;
+  padding-bottom: 56px;
+}
+
+.back {
+  display: block;
+  width: fit-content;
+  margin-bottom: 72px;
+  color: var(--on-dark);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  opacity: 0.85;
+}
+
+.back:hover {
+  opacity: 1;
+  color: var(--gold-bright);
+}
+
+.badge {
+  display: inline-block;
+  background: var(--gold-bright);
+  color: var(--ink);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 7px 12px;
+  border-radius: 999px;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: clamp(30px, 4.4vw, 54px);
+  font-weight: 400;
+  max-width: 24ch;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+}
+
+.facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 48px;
+  margin: 36px 0 0;
+  padding-top: 24px;
+  border-top: 1px solid rgba(243, 239, 230, 0.25);
+}
+
+.facts dt {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold-bright);
+}
+
+.facts dd {
+  margin: 4px 0 0;
+  font-size: 16px;
+}
+
+.text {
+  max-width: 760px;
+}
+
+.summary {
+  font-family: var(--font-display);
+  font-size: clamp(21px, 2.2vw, 26px);
+  line-height: 1.5;
+  color: var(--ink);
+  margin-bottom: 32px;
+}
+
+.othersTitle {
+  font-size: 32px;
+  margin-bottom: 36px;
+}
+
+.others {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+@media (max-width: 1000px) {
+  .others {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 680px) {
+  .others {
+    grid-template-columns: 1fr;
+  }
+  .back {
+    margin-bottom: 48px;
+  }
+}

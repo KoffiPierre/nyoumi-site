@@ -1,0 +1,29 @@
+{
+  "titre": "Formation des ingénieurs de la Direction des Services Informatiques du Ministère de l'Économie et des Finances",
+  "titre_en": "Training the engineers of the IT Services Directorate of the Ministry of Economy and Finance",
+  "date": "2026-11-01",
+  "periode": "",
+  "periode_en": "",
+  "categorie": "formation",
+  "lieu": "",
+  "lieu_en": "",
+  "partenaire": "DSI, Ministère de l'Économie et des Finances",
+  "resume": "Formation des ingénieurs de la DSI du Ministère de l'Économie et des Finances à l'intelligence artificielle appliquée aux finances publiques.",
+  "resume_en": "Training the engineers of the Ministry of Economy and Finance's IT Services Directorate in artificial intelligence applied to public finance.",
+  "texte": "Conçue et animée par le Dr Dieudonné Nyoumi Mballa, cette formation **« Finances publiques avec l'intelligence artificielle »** s'adresse aux ingénieurs de la Direction des Services Informatiques (DSI) du Ministère de l'Économie et des Finances.\n\nLes participants ont suivi un parcours de travail complet, sur des données pédagogiques synthétiques :\n\n1. comprendre le problème métier et la décision à soutenir ;\n2. charger, explorer, nettoyer et préparer les données ;\n3. construire une référence simple, puis entraîner un modèle ;\n4. évaluer le résultat avec des métriques adaptées au cas financier.\n\nUne démarche reproductible, pensée pour être adaptée, homologuée et validée avant tout usage administratif.",
+  "texte_en": "Designed and delivered by Dr Dieudonné Nyoumi Mballa, this **“Public finance with artificial intelligence”** training is aimed at the engineers of the IT Services Directorate (DSI) of the Ministry of Economy and Finance.\n\nParticipants followed a complete hands-on workflow, using synthetic teaching data:\n\n1. understanding the business problem and the decision to support;\n2. loading, exploring, cleaning and preparing the data;\n3. building a simple baseline, then training a model;\n4. evaluating results with metrics suited to the financial use case.\n\nA reproducible approach, designed to be adapted, approved and validated before any administrative use.",
+  "couverture": "/uploads/activites/dsi-minefi-04.jpg",
+  "photos": [
+    { "image": "/uploads/activites/dsi-minefi-04.jpg", "legende": "Formation des ingénieurs de la Direction des Services Informatiques du Ministère de l'Économie et des Finances", "legende_en": "Training the engineers of the IT Services Directorate of the Ministry of Economy and Finance" },
+    { "image": "/uploads/activites/dsi-minefi-01.jpg", "legende": "Formation des ingénieurs de la Direction des Services Informatiques du Ministère de l'Économie et des Finances", "legende_en": "Training the engineers of the IT Services Directorate of the Ministry of Economy and Finance" },
+    { "image": "/uploads/activites/dsi-minefi-03.jpg", "legende": "Formation des ingénieurs de la Direction des Services Informatiques du Ministère de l'Économie et des Finances", "legende_en": "Training the engineers of the IT Services Directorate of the Ministry of Economy and Finance" },
+    { "image": "/uploads/activites/dsi-minefi-05.jpg", "legende": "Formation des ingénieurs de la Direction des Services Informatiques du Ministère de l'Économie et des Finances", "legende_en": "Training the engineers of the IT Services Directorate of the Ministry of Economy and Finance" },
+    { "image": "/uploads/activites/dsi-minefi-02.jpg", "legende": "Formation des ingénieurs de la Direction des Services Informatiques du Ministère de l'Économie et des Finances", "legende_en": "Training the engineers of the IT Services Directorate of the Ministry of Economy and Finance" },
+    { "image": "/uploads/activites/dsi-minefi-06.jpg", "legende": "Formation des ingénieurs de la Direction des Services Informatiques du Ministère de l'Économie et des Finances", "legende_en": "Training the engineers of the IT Services Directorate of the Ministry of Economy and Finance" }
+  ],
+  "videos": [
+    { "fichier": "/videos/dsi-minefi-01.mp4", "youtube": "", "apercu": "/uploads/activites/dsi-minefi-video-01.jpg", "legende": "Formation des ingénieurs DSI, en images", "legende_en": "DSI engineers training, in pictures" }
+  ],
+  "a_la_une": true,
+  "brouillon": false
+}

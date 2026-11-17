@@ -1,41 +1,55 @@
+.article {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
 .back {
   display: inline-block;
+  margin-bottom: 48px;
   font-size: 14px;
   font-weight: 500;
-  color: var(--muted);
+  color: var(--ink-soft);
   text-decoration: none;
-  margin-bottom: 36px;
 }
 
 .back:hover {
-  color: var(--accent);
-}
-
-.article {
-  max-width: 680px;
+  color: var(--gold);
 }
 
 .date {
   display: block;
   font-size: 12.5px;
   font-weight: 600;
-  color: var(--accent);
-  margin-bottom: 14px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 16px;
 }
 
 .title {
-  font-size: clamp(28px, 4vw, 40px);
-  line-height: 1.15;
-  margin-bottom: 26px;
+  font-size: clamp(34px, 4.6vw, 54px);
+  font-weight: 400;
 }
 
-.paragraph {
+.summary {
+  font-family: var(--font-display);
+  font-size: 22px;
+  line-height: 1.55;
   color: var(--ink-soft);
-  font-size: 15.5px;
-  line-height: 1.8;
-  margin: 0 0 18px;
+  margin-top: 24px;
 }
 
-.paragraph:last-child {
-  margin-bottom: 0;
+.image {
+  margin: 40px 0;
+}
+
+.image img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-lg);
+}
+
+.article :global(.prose) {
+  margin-top: 40px;
+  max-width: none;
 }

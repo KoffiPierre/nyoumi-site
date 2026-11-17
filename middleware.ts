@@ -1,5 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { locales, defaultLocale } from '@/lib/i18n';
+
+// Kept inline (no '@/…' import): Vercel's Edge bundler cannot resolve path
+// aliases in middleware. Must stay in sync with lib/i18n.ts.
+const locales = ['fr', 'en'];
+const defaultLocale = 'fr';
 
 function getPreferredLocale(request: NextRequest): string {
   const acceptLanguage = request.headers.get('accept-language');
@@ -11,7 +15,7 @@ export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   // Never touch static files (anything with a file extension) or Next internals.
-  if (pathname.startsWith('/_next') || pathname.startsWith('/api') || /\.[a-zA-Z0-9]+$/.test(pathname)) {
+  if (pathname.startsWith('/_next') || pathname.startsWith('/api') || pathname.startsWith('/admin') || /\.[a-zA-Z0-9]+$/.test(pathname)) {
     return;
   }
 
@@ -25,8 +29,8 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  // Excludes _next, api, and any request path that has a file extension
+  // Excludes _next, api, admin (the content editor), and any request path that has a file extension
   // (images, videos, favicon, robots.txt, etc.) — those are always static
   // files and must never be prefixed with a locale.
-  matcher: ['/((?!_next|api|.*\\..*).*)'],
+  matcher: ['/((?!_next|api|admin|.*\\..*).*)'],
 };

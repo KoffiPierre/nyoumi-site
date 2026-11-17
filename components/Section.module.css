@@ -1,5 +1,9 @@
 .section {
-  padding: 88px 0;
+  padding: 112px 0;
+}
+
+.tight {
+  padding: 72px 0;
 }
 
 .paper {
@@ -10,13 +14,20 @@
   background: var(--paper-alt);
 }
 
-.ink {
-  background: var(--ink);
-  color: var(--paper);
+.white {
+  background: var(--paper-raised);
 }
 
-@media (max-width: 640px) {
+.ink {
+  background: var(--ink);
+  color: var(--on-dark);
+}
+
+@media (max-width: 720px) {
   .section {
-    padding: 60px 0;
+    padding: 72px 0;
+  }
+  .tight {
+    padding: 52px 0;
   }
 }

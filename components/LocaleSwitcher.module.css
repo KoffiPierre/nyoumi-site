@@ -1,15 +1,16 @@
 .switch {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 6px;
   font-size: 13px;
-  font-weight: 500;
+  font-weight: 600;
+  letter-spacing: 0.06em;
 }
 
 .item {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 6px;
 }
 
 .sep {
@@ -17,9 +18,8 @@
 }
 
 .active {
-  color: var(--accent);
+  color: var(--ink);
   text-decoration: none;
-  font-weight: 700;
 }
 
 .inactive {
@@ -28,21 +28,17 @@
 }
 
 .inactive:hover {
-  color: var(--ink);
+  color: var(--gold);
 }
 
 .dark .sep {
-  color: rgba(250, 249, 246, 0.3);
-}
-
-.dark .inactive {
-  color: #a7ab9f;
-}
-
-.dark .inactive:hover {
-  color: var(--paper);
+  color: var(--line-dark);
 }
 
 .dark .active {
-  color: var(--accent-soft);
+  color: var(--on-dark);
+}
+
+.dark .inactive {
+  color: var(--on-dark-soft);
 }

@@ -1,202 +1,123 @@
-# Nyoumi Mballa — Site (Next.js / TypeScript / FR-EN)
+# Dieudonné Nyoumi Mballa — site officiel
 
-Site vitrine multi-pages, bilingue (Français / Anglais), construit en **Next.js 15 + TypeScript**, avec une couche de contenu entièrement typée et séparée de l'affichage.
+Site bilingue (français / anglais) en **Next.js 15 + TypeScript**, déployé sur **Vercel**, avec un **espace d'administration** (`/admin`) qui permet à Dieudonné de publier lui-même ses activités, photos, vidéos, articles et articles de presse.
+
+- 👉 **Guide pour Dieudonné** (sans code) : [`GUIDE-ADMINISTRATION.md`](./GUIDE-ADMINISTRATION.md)
+- 👉 Ce README : pour la personne qui maintient le site (installation, configuration, architecture).
 
 ## Démarrage local
 
 ```bash
 npm install
-npm run dev
+npm run dev        # http://localhost:3000 → redirige vers /fr
+npm run build      # à lancer avant chaque push
 ```
 
-→ http://localhost:3000 (redirige automatiquement vers `/fr`)
+## Organisation des pages
+
+| Page | Contenu |
+|---|---|
+| `/` Accueil | Présentation, chiffres clés, institutions, activités à la une, expertise, parcours, ouvrage et presse |
+| `/parcours` | Frise chronologique |
+| `/expertise` | Domaines et compétences |
+| `/activites` | Toutes les activités (filtrables : formations, conférences, rencontres, distinctions) |
+| `/activites/[slug]` | Une activité : récit, galerie photo avec visionneuse, vidéos |
+| `/publications` | L'ouvrage, l'article technique, et les articles publiés depuis l'admin |
+| `/presse`, `/presse/[slug]` | Articles de presse |
+| `/contact` | Coordonnées + formulaire (ouvre la messagerie) |
+
+Les anciennes adresses `/formation` et `/ouvrage` redirigent automatiquement vers `/activites` et `/publications#ouvrage`.
+
+## Où est le contenu ?
+
+```
+content/                    ★ modifiable depuis /admin (fichiers JSON)
+├── activites/*.json        une activité = un fichier (photos, vidéos, textes)
+├── publications/*.json     articles & réflexions
+├── presse/*.json           articles de presse
+└── reglages/
+    ├── profil.json         nom, titres, présentation, portrait, coordonnées, chiffres clés, institutions
+    ├── parcours.json       étapes de la frise
+    └── reseaux.json        réseaux sociaux
+
+data/                       contenu stable, modifiable dans le code uniquement
+├── pillars.ts              4 domaines d'expertise
+├── skills.ts               compétences détaillées
+└── publications.ts         l'ouvrage + l'article technique
+
+public/uploads/             photos envoyées depuis l'admin (et photos des activités)
+public/videos/              vidéos .mp4 (compressées en H.264, lecture progressive)
+public/admin/               l'application d'administration (Decap CMS) + config.yml
+```
+
+Chaque texte traduisible existe en deux champs : `champ` (français, obligatoire) et `champ_en` (anglais, facultatif). Si l'anglais est vide, le français s'affiche sur la version anglaise. La lecture des fichiers est centralisée dans `lib/content.ts`.
+
+---
+
+## ⚙️ Mise en service de l'espace d'administration (à faire une seule fois)
+
+L'admin est [Decap CMS](https://decapcms.org) : chaque « Publier » crée un commit sur la branche `main` de ce dépôt GitHub, et Vercel redéploie le site automatiquement (1 à 2 minutes). Pas de base de données, pas d'abonnement.
+
+### 1. Créer une « OAuth App » GitHub
+
+Sur GitHub : **Settings → Developer settings → OAuth Apps → New OAuth App** (depuis le compte propriétaire du dépôt).
+
+- **Application name** : `Site Dieudonné — Admin`
+- **Homepage URL** : `https://VOTRE-DOMAINE`
+- **Authorization callback URL** : `https://VOTRE-DOMAINE/api/decap/callback`
+
+Notez le **Client ID**, puis générez un **Client secret**.
+
+> Si le site est accessible sur plusieurs domaines (ex. `xxx.vercel.app` et un nom de domaine), utilisez le domaine principal ; l'admin doit être ouvert depuis ce domaine.
+
+### 2. Ajouter les variables sur Vercel
+
+Projet Vercel → **Settings → Environment Variables** (environnement *Production*) :
+
+| Nom | Valeur |
+|---|---|
+| `DECAP_GITHUB_CLIENT_ID` | le Client ID |
+| `DECAP_GITHUB_CLIENT_SECRET` | le Client secret |
+| `NEXT_PUBLIC_SITE_URL` | `https://VOTRE-DOMAINE` (utilisé pour les aperçus de partage) |
+
+Puis **redéployez** (Deployments → … → Redeploy).
+
+### 3. Donner l'accès à Dieudonné
+
+1. Dieudonné crée un compte gratuit sur github.com.
+2. Dépôt GitHub → **Settings → Collaborators → Add people** → son identifiant, rôle **Write**.
+3. Il accepte l'invitation reçue par email, puis se connecte sur `https://VOTRE-DOMAINE/admin`.
+
+### Le dépôt ou la branche changent ?
+
+Modifiez `repo` et `branch` dans `public/admin/index.html`.
+
+### Tester l'admin en local (sans GitHub)
 
 ```bash
-npm run build   # build de production — à lancer avant chaque push pour repérer les erreurs
-npm run start   # sert le build de production en local
+npm run build && npm run start
 ```
 
-## Déploiement sur Vercel
+```bash
+npx decap-server
+```
 
-Chaque `git push` sur `main` redéploie automatiquement. Aucune configuration Vercel additionnelle n'est nécessaire.
+Puis ouvrez http://localhost:3000/admin : en local, l'admin lit et écrit directement les fichiers du dossier (`local_backend`).
 
 ---
 
-## 🖼️ Comment ajouter ou changer des images
+## Ajouter un réseau social non prévu
 
-**1. Dépose le fichier image** dans le bon dossier de `public/images/` :
-   - Photos de formation → `public/images/formation/`
-   - Autres photos (portrait, presse, livre...) → `public/images/`
+Les icônes disponibles (LinkedIn, Facebook, Instagram, YouTube, X, TikTok, WhatsApp, site web) sont dans `components/SocialLinks.tsx`. Pour un autre réseau, ajoutez son icône là, et l'option correspondante dans `public/admin/config.yml` (collection `reglages`, fichier `reseaux`).
 
-**2. Note ses dimensions.** Sur Windows : clic droit sur le fichier → Propriétés → onglet Détails → "Dimensions". Tu auras besoin de la largeur et la hauteur en pixels.
+## Vidéos lourdes
 
-**3. Ajoute une entrée dans le fichier de données correspondant** — jamais directement dans une page :
+GitHub limite la taille des fichiers : au-delà d'environ 20 Mo, préférez YouTube (champ « Lien YouTube »). Pour compresser une vidéo avant de l'ajouter au dépôt :
 
-Pour la galerie de la page **Formation**, ouvre `data/formationGallery.ts` et ajoute un bloc à la fin du tableau `formationGallery` :
-
-```ts
-{
-  id: 'g10',                                    // identifiant unique, jamais utilisé ailleurs
-  kind: 'photo',
-  src: '/images/formation/formation-10.jpg',    // chemin exact du fichier déposé à l'étape 1
-  width: 1080,                                   // largeur réelle en pixels (étape 2)
-  height: 1350,                                  // hauteur réelle en pixels (étape 2)
-  country: { fr: 'Sénégal', en: 'Senegal' },     // pays affiché en bas de la photo
-  caption: { fr: 'Session à Dakar', en: 'Session in Dakar' },
-},
+```bash
+ffmpeg -i entree.mp4 -vf scale=-2:960 -c:v libx264 -crf 28 -preset slow -c:a aac -b:a 96k -movflags +faststart sortie.mp4
 ```
 
-C'est tout — la photo apparaît automatiquement sur `/formation`, dans les deux langues, avec le pays affiché en permanence en bas de l'image, et s'ouvre en grand au clic.
+## Design
 
-## 🎬 Comment ajouter une vidéo
-
-**1.** Dépose le fichier `.mp4` dans `public/videos/`.
-
-**2.** Génère une image d'aperçu (une image fixe qui s'affiche avant que la vidéo soit lancée). Le plus simple si tu n'as pas d'outil : ouvre la vidéo, fais une capture d'écran d'un moment qui donne envie de cliquer, et enregistre-la dans `public/images/formation/` (par exemple `formation-video-03-poster.jpg`).
-
-**3.** Ajoute une entrée dans `data/formationGallery.ts`, avec `kind: 'video'` et le champ `poster` :
-
-```ts
-{
-  id: 'v03',
-  kind: 'video',
-  src: '/videos/formation-03.mp4',
-  poster: '/images/formation/formation-video-03-poster.jpg',
-  width: 720,                                    // dimensions de l'image d'aperçu (poster)
-  height: 1280,
-  country: { fr: 'Gabon', en: 'Gabon' },
-  caption: { fr: 'Extrait de la session', en: 'Session excerpt' },
-},
-```
-
-## 🌍 Comment changer le pays (ou la légende) affiché sous une photo
-
-Ouvre `data/formationGallery.ts`. Chaque photo/vidéo a un bloc `country: { fr: '...', en: '...' }`. Modifie simplement le texte entre guillemets.
-
-**Important — à faire avant la mise en ligne définitive :** plusieurs entrées ont actuellement un pays provisoire marqué **"À confirmer"** (ou "Maroc — à confirmer" pour les 4 premières, qui semblent avoir été prises au bureau de Casablanca). Ce sont des valeurs que j'ai mises en attendant que le client précise le vrai pays de chaque photo — à remplacer avant de publier.
-
----
-
-## 📰 Les articles de presse ouvrent maintenant une vraie page
-
-Avant, cliquer sur une photo de journal l'ouvrait juste en grand par-dessus la page (une "lightbox"). Maintenant, cliquer **redirige vers une page dédiée** à cet article : `/presse/[nom-de-larticle]`.
-
-Pour modifier le contenu d'un article, tout se passe dans `data/press.ts` — rien à toucher dans le code de la page elle-même. Le champ `slug` détermine l'adresse de la page (ex. `slug: 'un-ingenieur-camerounais-en-ia'` → page accessible à `/fr/presse/un-ingenieur-camerounais-en-ia`).
-
-Pour ajouter un troisième article de presse : copie un bloc existant dans `data/press.ts` (dans les deux tableaux `fr` et `en`), donne-lui un nouveau `slug`, dépose l'image du journal dans `public/images/`, et remplis les autres champs. La page à cette adresse se génère automatiquement.
-
----
-
-## 💡 Comment ajouter une publication (idée, réflexion)
-
-Le client peut publier des textes courts sur `/publications`, indépendamment des articles de presse. Tout se passe dans **`data/ideas.ts`**.
-
-Pour ajouter une nouvelle publication, copie un bloc dans **les deux tableaux `fr` et `en`** :
-
-```ts
-{
-  id: 'mon-nouvel-article',            // identifiant unique
-  slug: 'mon-nouvel-article',           // détermine l'adresse : /publications/mon-nouvel-article
-  title: 'Titre de la publication',
-  date: '2026',                         // ou une date plus précise, ex. 'Mars 2026'
-  excerpt: 'Résumé en une phrase, affiché dans la liste.',
-  body: [
-    'Premier paragraphe.',
-    'Deuxième paragraphe.',
-  ],
-},
-```
-
-La page liste (`/publications`) et la page dédiée (`/publications/mon-nouvel-article`) se génèrent automatiquement, dans les deux langues. Une publication "Bienvenue" sert d'exemple de départ — à remplacer ou compléter avec les vrais textes du client.
-
----
-
-Tout se passe dans **un seul fichier : `data/social.ts`**.
-
-**Pour changer un lien existant**, remplace simplement l'URL :
-
-```ts
-{
-  id: 'linkedin',
-  label: 'LinkedIn',
-  url: 'https://www.linkedin.com/in/...',   // ← remplace ce lien
-},
-```
-
-**Pour ajouter Instagram** (ou un autre réseau), ajoute un bloc au tableau :
-
-```ts
-{ id: 'instagram', label: 'Instagram', url: 'https://www.instagram.com/tonpseudo/' },
-```
-
-L'icône Instagram existe déjà dans `components/SocialLinks.tsx` (elle attend juste qu'une entrée `id: 'instagram'` apparaisse dans `data/social.ts`). Pour tout autre réseau (X/Twitter, YouTube...), il faut aussi ajouter son icône dans ce fichier — demande-le-moi si besoin.
-
-**Pour supprimer un lien**, supprime simplement son bloc du tableau.
-
-Les icônes apparaissent automatiquement dans le pied de page, sur toutes les pages, dans les deux langues.
-
----
-
-## Architecture générale
-
-```
-nyoumi-site/
-├── middleware.ts              → détection/redirection de langue (fr/en)
-├── app/
-│   ├── globals.css             → tokens de design (couleurs, typo, espacements)
-│   └── [locale]/                → toutes les routes (fr/en)
-│       ├── layout.tsx
-│       ├── page.tsx               → Accueil
-│       ├── parcours/page.tsx
-│       ├── expertise/page.tsx
-│       ├── formation/page.tsx     → galerie photos + vidéos
-│       ├── presse/page.tsx        → liste des articles
-│       ├── presse/[slug]/page.tsx → page dédiée par article — NOUVEAU
-│       ├── ouvrage/page.tsx
-│       ├── publications/page.tsx  → liste des idées publiées — NOUVEAU
-│       ├── publications/[slug]/page.tsx → page dédiée par publication — NOUVEAU
-│       ├── contact/page.tsx
-│       └── not-found.tsx
-│
-├── components/
-│   ├── SiteHeader.tsx, SiteFooter.tsx, LocaleSwitcher.tsx
-│   ├── SocialLinks.tsx           → icônes réseaux sociaux — NOUVEAU
-│   ├── Lightbox.tsx               → agrandissement au clic (photos ET vidéos)
-│   ├── Hero.tsx, PillarGrid.tsx, Timeline.tsx, SkillGrid.tsx, PressGrid.tsx, BookFeature.tsx
-│   ├── ContactForm.tsx, PullQuote.tsx, Section.tsx, SectionHead.tsx, PageHeader.tsx
-│   └── Reveal.tsx
-│
-├── data/                    ★ LE CONTENU — tout est ici, rien en dur dans le code
-│   ├── profile.ts, pillars.ts, timeline.ts, skills.ts, publications.ts
-│   ├── press.ts                  → articles de presse (avec `slug` pour la page dédiée)
-│   ├── ideas.ts                    → publications / idées (avec `slug` pour la page dédiée) — NOUVEAU
-│   ├── training.ts                → infos générales Afrique Compétences
-│   ├── formationGallery.ts        → galerie photos/vidéos de formation — NOUVEAU
-│   └── social.ts                  → liens réseaux sociaux — NOUVEAU
-│
-├── lib/
-│   ├── i18n.ts, dictionary.ts, nav.ts
-│
-├── types/content.ts
-└── public/
-    ├── images/                    → portrait, presse, livre...
-    │   └── formation/              → photos de formation
-    └── videos/                     → vidéos de formation — NOUVEAU
-```
-
-## Ce qui est déjà géré
-
-- **TypeScript strict**, cohérence fr/en garantie à la compilation.
-- **0 vulnérabilité** (`npm audit`) — dépendances à jour et verrouillées.
-- **Bilingue**, **responsive**, **accessible** (focus visible, `prefers-reduced-motion`).
-- **SEO** : `metadata` par page et par langue, y compris pour chaque article de presse.
-
-## Formulaire de contact
-
-`components/ContactForm.tsx` ouvre un `mailto:` pré-rempli. Pour un vrai envoi serveur, voir la section correspondante dans l'historique du projet ou demande-le-moi.
-
-## Suggestions pour la suite
-
-- Confirmer le vrai pays pour chaque photo/vidéo de formation (voir section dédiée ci-dessus).
-- Ajouter le lien Instagram dans `data/social.ts` dès qu'il est disponible.
-- Favicon + image Open Graph (1200×630), déclinée fr/en.
+Tokens dans `app/globals.css` : bleu nuit (`--ink`), ivoire (`--paper`), or (`--gold` sur fond clair, `--gold-bright` sur fond sombre). Typographies : Fraunces (titres) et Inter (texte). Responsive, `prefers-reduced-motion` respecté, focus visibles.

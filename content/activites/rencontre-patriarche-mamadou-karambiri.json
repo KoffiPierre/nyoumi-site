@@ -1,0 +1,23 @@
+{
+  "titre": "Rencontre avec le Patriarche Papa Mamadou Karambiri",
+  "titre_en": "Meeting with Patriarch Papa Mamadou Karambiri",
+  "date": "2026-11-05",
+  "periode": "",
+  "periode_en": "",
+  "categorie": "rencontre",
+  "lieu": "",
+  "lieu_en": "",
+  "partenaire": "",
+  "resume": "Un moment d'échange privilégié avec le Patriarche Papa Mamadou Karambiri.",
+  "resume_en": "A privileged moment of exchange with Patriarch Papa Mamadou Karambiri.",
+  "texte": "Rencontre avec le Patriarche Papa Mamadou Karambiri.",
+  "texte_en": "Meeting with Patriarch Papa Mamadou Karambiri.",
+  "couverture": "/uploads/activites/karambiri-01.jpg",
+  "photos": [
+    { "image": "/uploads/activites/karambiri-01.jpg", "legende": "Rencontre avec le Patriarche Papa Mamadou Karambiri", "legende_en": "Meeting with Patriarch Papa Mamadou Karambiri" },
+    { "image": "/uploads/activites/karambiri-02.jpg", "legende": "Ouvrages du Dr Mamadou Karambiri, aux côtés du diplôme de doctorat", "legende_en": "Books by Dr Mamadou Karambiri, alongside the doctoral diploma" }
+  ],
+  "videos": [],
+  "a_la_une": false,
+  "brouillon": false
+}

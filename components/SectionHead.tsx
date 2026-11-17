@@ -11,14 +11,16 @@ interface SectionHeadProps {
 export default function SectionHead({ label, title, description, action }: SectionHeadProps) {
   return (
     <div className={styles.head}>
-      <div>
+      <div className={styles.left}>
         <span className="eyebrow">{label}</span>
         <h2 className={styles.title}>{title}</h2>
       </div>
-      <div className={styles.right}>
-        {description && <p className={styles.desc}>{description}</p>}
-        {action}
-      </div>
+      {(description || action) && (
+        <div className={styles.right}>
+          {description && <p className={styles.desc}>{description}</p>}
+          {action}
+        </div>
+      )}
     </div>
   );
 }
