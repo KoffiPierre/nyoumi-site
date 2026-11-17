@@ -1,5 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { locales, defaultLocale } from '@/lib/i18n';
+
+// Kept inline (no '@/…' import): Vercel's Edge bundler cannot resolve path
+// aliases in middleware. Must stay in sync with lib/i18n.ts.
+const locales = ['fr', 'en'];
+const defaultLocale = 'fr';
 
 function getPreferredLocale(request: NextRequest): string {
   const acceptLanguage = request.headers.get('accept-language');
