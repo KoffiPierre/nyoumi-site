@@ -77,5 +77,6 @@
     }
   ],
   "a_la_une": false,
-  "brouillon": false
+  "brouillon": false,
+  "cadrage": "centre"
 }

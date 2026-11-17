@@ -14,10 +14,19 @@
   "texte_en": "Meeting with Patriarch Papa Mamadou Karambiri.",
   "couverture": "/uploads/activites/karambiri-01.jpg",
   "photos": [
-    { "image": "/uploads/activites/karambiri-01.jpg", "legende": "Rencontre avec le Patriarche Papa Mamadou Karambiri", "legende_en": "Meeting with Patriarch Papa Mamadou Karambiri" },
-    { "image": "/uploads/activites/karambiri-02.jpg", "legende": "Ouvrages du Dr Mamadou Karambiri, aux côtés du diplôme de doctorat", "legende_en": "Books by Dr Mamadou Karambiri, alongside the doctoral diploma" }
+    {
+      "image": "/uploads/activites/karambiri-01.jpg",
+      "legende": "Rencontre avec le Patriarche Papa Mamadou Karambiri",
+      "legende_en": "Meeting with Patriarch Papa Mamadou Karambiri"
+    },
+    {
+      "image": "/uploads/activites/karambiri-02.jpg",
+      "legende": "Ouvrages du Dr Mamadou Karambiri, aux côtés du diplôme de doctorat",
+      "legende_en": "Books by Dr Mamadou Karambiri, alongside the doctoral diploma"
+    }
   ],
   "videos": [],
   "a_la_une": false,
-  "brouillon": false
+  "brouillon": false,
+  "cadrage": "centre"
 }

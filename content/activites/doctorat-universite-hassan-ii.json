@@ -14,10 +14,19 @@
   "texte_en": "The outcome of four years of research conducted alongside teaching and engineering work, the doctorate from Hassan II University of Casablanca was awarded **with highest honors and jury commendation**, as part of the January 2026 class.",
   "couverture": "/uploads/activites/doctorat-01.jpg",
   "photos": [
-    { "image": "/uploads/activites/doctorat-01.jpg", "legende": "En toge doctorale, promotion de janvier 2026", "legende_en": "In doctoral robes, January 2026 class" },
-    { "image": "/uploads/activites/doctorat-02.jpg", "legende": "Docteur de l'Université Hassan II de Casablanca, option Blockchain & Web3 / IA", "legende_en": "Doctor of Hassan II University of Casablanca, Blockchain & Web3 / AI track" }
+    {
+      "image": "/uploads/activites/doctorat-01.jpg",
+      "legende": "En toge doctorale, promotion de janvier 2026",
+      "legende_en": "In doctoral robes, January 2026 class"
+    },
+    {
+      "image": "/uploads/activites/doctorat-02.jpg",
+      "legende": "Docteur de l'Université Hassan II de Casablanca, option Blockchain & Web3 / IA",
+      "legende_en": "Doctor of Hassan II University of Casablanca, Blockchain & Web3 / AI track"
+    }
   ],
   "videos": [],
   "a_la_une": false,
-  "brouillon": false
+  "brouillon": false,
+  "cadrage": "haut"
 }

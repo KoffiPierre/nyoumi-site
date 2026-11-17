@@ -47,6 +47,7 @@ Chaque texte a une version anglaise **facultative**. Si vous la laissez vide, le
 - Envoyez de préférence des photos **de moins de 5 Mo** (celles de WhatsApp conviennent parfaitement).
 - Évitez les espaces et les accents dans le nom du fichier si possible (ex. `formation-dsi-01.jpg`).
 - La **photo de couverture** est facultative : sans elle, c'est la première photo de la galerie qui est utilisée.
+- **Cadrage de la photo de couverture** : en haut de la page de l'activité, la couverture est recadrée en bandeau. Si les visages sont coupés, choisissez « Haut », « Centre » ou « Bas » selon l'endroit où ils se trouvent sur la photo. Pour une **affiche** (pleine de texte), choisissez « Pas de photo dans le bandeau » : l'affiche reste visible sur la carte et dans la galerie.
 
 ### Les vidéos
 

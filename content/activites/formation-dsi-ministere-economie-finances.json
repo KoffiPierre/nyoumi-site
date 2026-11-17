@@ -14,16 +14,47 @@
   "texte_en": "Designed and delivered by Dr Dieudonné Nyoumi Mballa, this **“Public finance with artificial intelligence”** training is aimed at the engineers of the IT Services Directorate (DSI) of the Ministry of Economy and Finance.\n\nParticipants followed a complete hands-on workflow, using synthetic teaching data:\n\n1. understanding the business problem and the decision to support;\n2. loading, exploring, cleaning and preparing the data;\n3. building a simple baseline, then training a model;\n4. evaluating results with metrics suited to the financial use case.\n\nA reproducible approach, designed to be adapted, approved and validated before any administrative use.",
   "couverture": "/uploads/activites/dsi-minefi-04.jpg",
   "photos": [
-    { "image": "/uploads/activites/dsi-minefi-04.jpg", "legende": "Formation des ingénieurs de la Direction des Services Informatiques du Ministère de l'Économie et des Finances", "legende_en": "Training the engineers of the IT Services Directorate of the Ministry of Economy and Finance" },
-    { "image": "/uploads/activites/dsi-minefi-01.jpg", "legende": "Formation des ingénieurs de la Direction des Services Informatiques du Ministère de l'Économie et des Finances", "legende_en": "Training the engineers of the IT Services Directorate of the Ministry of Economy and Finance" },
-    { "image": "/uploads/activites/dsi-minefi-03.jpg", "legende": "Formation des ingénieurs de la Direction des Services Informatiques du Ministère de l'Économie et des Finances", "legende_en": "Training the engineers of the IT Services Directorate of the Ministry of Economy and Finance" },
-    { "image": "/uploads/activites/dsi-minefi-05.jpg", "legende": "Formation des ingénieurs de la Direction des Services Informatiques du Ministère de l'Économie et des Finances", "legende_en": "Training the engineers of the IT Services Directorate of the Ministry of Economy and Finance" },
-    { "image": "/uploads/activites/dsi-minefi-02.jpg", "legende": "Formation des ingénieurs de la Direction des Services Informatiques du Ministère de l'Économie et des Finances", "legende_en": "Training the engineers of the IT Services Directorate of the Ministry of Economy and Finance" },
-    { "image": "/uploads/activites/dsi-minefi-06.jpg", "legende": "Formation des ingénieurs de la Direction des Services Informatiques du Ministère de l'Économie et des Finances", "legende_en": "Training the engineers of the IT Services Directorate of the Ministry of Economy and Finance" }
+    {
+      "image": "/uploads/activites/dsi-minefi-04.jpg",
+      "legende": "Formation des ingénieurs de la Direction des Services Informatiques du Ministère de l'Économie et des Finances",
+      "legende_en": "Training the engineers of the IT Services Directorate of the Ministry of Economy and Finance"
+    },
+    {
+      "image": "/uploads/activites/dsi-minefi-01.jpg",
+      "legende": "Formation des ingénieurs de la Direction des Services Informatiques du Ministère de l'Économie et des Finances",
+      "legende_en": "Training the engineers of the IT Services Directorate of the Ministry of Economy and Finance"
+    },
+    {
+      "image": "/uploads/activites/dsi-minefi-03.jpg",
+      "legende": "Formation des ingénieurs de la Direction des Services Informatiques du Ministère de l'Économie et des Finances",
+      "legende_en": "Training the engineers of the IT Services Directorate of the Ministry of Economy and Finance"
+    },
+    {
+      "image": "/uploads/activites/dsi-minefi-05.jpg",
+      "legende": "Formation des ingénieurs de la Direction des Services Informatiques du Ministère de l'Économie et des Finances",
+      "legende_en": "Training the engineers of the IT Services Directorate of the Ministry of Economy and Finance"
+    },
+    {
+      "image": "/uploads/activites/dsi-minefi-02.jpg",
+      "legende": "Formation des ingénieurs de la Direction des Services Informatiques du Ministère de l'Économie et des Finances",
+      "legende_en": "Training the engineers of the IT Services Directorate of the Ministry of Economy and Finance"
+    },
+    {
+      "image": "/uploads/activites/dsi-minefi-06.jpg",
+      "legende": "Formation des ingénieurs de la Direction des Services Informatiques du Ministère de l'Économie et des Finances",
+      "legende_en": "Training the engineers of the IT Services Directorate of the Ministry of Economy and Finance"
+    }
   ],
   "videos": [
-    { "fichier": "/videos/dsi-minefi-01.mp4", "youtube": "", "apercu": "/uploads/activites/dsi-minefi-video-01.jpg", "legende": "Formation des ingénieurs DSI, en images", "legende_en": "DSI engineers training, in pictures" }
+    {
+      "fichier": "/videos/dsi-minefi-01.mp4",
+      "youtube": "",
+      "apercu": "/uploads/activites/dsi-minefi-video-01.jpg",
+      "legende": "Formation des ingénieurs DSI, en images",
+      "legende_en": "DSI engineers training, in pictures"
+    }
   ],
   "a_la_une": true,
-  "brouillon": false
+  "brouillon": false,
+  "cadrage": "centre"
 }

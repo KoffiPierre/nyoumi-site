@@ -44,9 +44,9 @@ export default async function ActivityPage({ params }: { params: Promise<{ local
 
   return (
     <>
-      <header className={`${styles.hero} on-dark`}>
-        {a.cover && <Image src={a.cover} alt="" fill priority sizes="100vw" className={styles.heroImg} />}
-        <div className={styles.heroShade} />
+      <header className={`${styles.hero} ${a.cover && a.coverInBanner ? '' : styles.plain} on-dark`}>
+        {a.cover && a.coverInBanner && <Image src={a.cover} alt="" fill priority sizes="100vw" className={styles.heroImg} style={{ objectPosition: a.coverPosition }} />}
+        {a.cover && a.coverInBanner && <div className={styles.heroShade} />}
         <div className={`wrap ${styles.heroInner}`}>
           <Link href={`/${locale}/activites`} className={styles.back}>
             {d.back}

@@ -109,6 +109,17 @@ collections:
         required: false
         choose_url: false
         hint: Si vide, la première photo de la galerie sert de couverture.
+      - label: Cadrage de la photo de couverture
+        name: cadrage
+        widget: select
+        default: centre
+        required: false
+        options:
+          - { label: Haut (visages en haut de la photo), value: haut }
+          - { label: Centre, value: centre }
+          - { label: Bas (visages en bas de la photo), value: bas }
+          - { label: Pas de photo dans le bandeau (pour une affiche), value: sans }
+        hint: "La couverture est recadrée en bandeau : choisissez la partie de la photo à garder visible."
       - label: Photos
         name: photos
         label_singular: photo
