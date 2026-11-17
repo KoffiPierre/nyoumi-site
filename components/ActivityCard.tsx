@@ -31,6 +31,7 @@ export default function ActivityCard({ activity: a, locale, large, priority }: A
             priority={priority}
             sizes={large ? '(max-width: 900px) 100vw, 60vw' : '(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 33vw'}
             className={styles.img}
+            style={{ objectPosition: a.coverPosition }}
           />
         )}
         <span className={styles.badge}>{categoryLabels[locale][a.category]}</span>

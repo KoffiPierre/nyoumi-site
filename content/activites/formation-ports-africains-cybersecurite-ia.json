@@ -1,33 +1,124 @@
 {
   "titre": "Formation des cadres et directeurs généraux des ports africains sur la cybersécurité des ports et l'apport de l'intelligence artificielle",
   "titre_en": "Training executives and directors general of African ports in port cybersecurity and the contribution of artificial intelligence",
-  "date": "2026-10-15",
-  "periode": "",
-  "periode_en": "",
+  "date": "2026-10-20",
+  "periode": "20 octobre 2026",
+  "periode_en": "October 20, 2026",
   "categorie": "formation",
-  "lieu": "",
-  "lieu_en": "",
-  "partenaire": "Ports africains",
+  "lieu": "Port de Casablanca, Maroc",
+  "lieu_en": "Port of Casablanca, Morocco",
+  "partenaire": "COPAF, Conférence des Ports Africains",
   "resume": "Cadres et directeurs généraux de ports africains réunis autour de la cybersécurité portuaire et des usages concrets de l'intelligence artificielle.",
   "resume_en": "Executives and directors general of African ports brought together around port cybersecurity and practical uses of artificial intelligence.",
-  "texte": "Le Dr Dieudonné Nyoumi Mballa, expert Blockchain-Web3 & IA, est intervenu auprès de cadres et de directeurs généraux de ports africains sur deux enjeux devenus stratégiques : **la cybersécurité des ports** et **l'apport de l'intelligence artificielle** à leurs opérations.\n\nDu système d'information chiffré jusqu'à la congestion du terminal, la session a passé en revue les usages concrets de l'IA dans un port : gestion des escales, parc à conteneurs, sûreté et sécurité, maintenance des équipements, traitement documentaire.\n\nLes échanges se sont conclus sur les engagements que chaque participant peut appliquer dès le retour dans son port.",
-  "texte_en": "Dr Dieudonné Nyoumi Mballa, Blockchain-Web3 & AI expert, addressed executives and directors general of African ports on two now-strategic issues: **port cybersecurity** and **the contribution of artificial intelligence** to their operations.\n\nFrom encrypted information systems to terminal congestion, the session reviewed concrete uses of AI in a port: call management, container yards, safety and security, equipment maintenance and document processing.\n\nThe discussions closed on the commitments each participant can apply back in their own port.",
+  "texte": "Dans le cadre de la **Conférence des Ports Africains (COPAF)**, organisée au Port de Casablanca, le Dr Dieudonné Nyoumi Mballa, spécialiste IA & Blockchain-Web3, a animé le 20 octobre 2026 l'atelier **« Cybersécurité portuaire : comment protéger un port connecté contre les menaces criminelles »**.\n\nIl est intervenu auprès de cadres et de directeurs généraux de ports africains sur deux enjeux devenus stratégiques : **la cybersécurité des ports** et **l'apport de l'intelligence artificielle** à leurs opérations.\n\nDu système d'information chiffré jusqu'à la congestion du terminal, la session a passé en revue les usages concrets de l'IA dans un port : gestion des escales, parc à conteneurs, sûreté et sécurité, maintenance des équipements, traitement documentaire.\n\nLes échanges se sont conclus sur les engagements que chaque participant peut appliquer dès le retour dans son port.",
+  "texte_en": "As part of the **Conference of African Ports (COPAF)**, held at the Port of Casablanca, Dr Dieudonné Nyoumi Mballa, AI & Blockchain-Web3 specialist, led the workshop **“Port cybersecurity: how to protect a connected port against criminal threats”** on October 20, 2026.\n\nHe addressed executives and directors general of African ports on two now-strategic issues: **port cybersecurity** and **the contribution of artificial intelligence** to their operations.\n\nFrom encrypted information systems to terminal congestion, the session reviewed concrete uses of AI in a port: call management, container yards, safety and security, equipment maintenance and document processing.\n\nThe discussions closed on the commitments each participant can apply back in their own port.",
   "couverture": "/uploads/activites/ports-africains-02.jpg",
   "photos": [
-    { "image": "/uploads/activites/ports-africains-02.jpg", "legende": "Formation des cadres et directeurs généraux des ports africains sur la cybersécurité des ports et l'apport de l'intelligence artificielle", "legende_en": "Training African port executives and directors general in port cybersecurity and the contribution of AI" },
-    { "image": "/uploads/activites/ports-africains-01.jpg", "legende": "Formation des cadres et directeurs généraux des ports africains sur la cybersécurité des ports et l'apport de l'intelligence artificielle", "legende_en": "Training African port executives and directors general in port cybersecurity and the contribution of AI" },
-    { "image": "/uploads/activites/ports-africains-03.jpg", "legende": "Formation des cadres et directeurs généraux des ports africains sur la cybersécurité des ports et l'apport de l'intelligence artificielle", "legende_en": "Training African port executives and directors general in port cybersecurity and the contribution of AI" },
-    { "image": "/uploads/activites/ports-africains-05.jpg", "legende": "Formation des cadres et directeurs généraux des ports africains sur la cybersécurité des ports et l'apport de l'intelligence artificielle", "legende_en": "Training African port executives and directors general in port cybersecurity and the contribution of AI" },
-    { "image": "/uploads/activites/ports-africains-04.jpg", "legende": "Formation des cadres et directeurs généraux des ports africains sur la cybersécurité des ports et l'apport de l'intelligence artificielle", "legende_en": "Training African port executives and directors general in port cybersecurity and the contribution of AI" },
-    { "image": "/uploads/activites/ports-africains-06.jpg", "legende": "Formation des cadres et directeurs généraux des ports africains sur la cybersécurité des ports et l'apport de l'intelligence artificielle", "legende_en": "Training African port executives and directors general in port cybersecurity and the contribution of AI" },
-    { "image": "/uploads/activites/ports-africains-07.jpg", "legende": "Formation des cadres et directeurs généraux des ports africains sur la cybersécurité des ports et l'apport de l'intelligence artificielle", "legende_en": "Training African port executives and directors general in port cybersecurity and the contribution of AI" },
-    { "image": "/uploads/activites/ports-africains-08.jpg", "legende": "Formation des cadres et directeurs généraux des ports africains sur la cybersécurité des ports et l'apport de l'intelligence artificielle", "legende_en": "Training African port executives and directors general in port cybersecurity and the contribution of AI" }
+    {
+      "image": "/uploads/activites/ports-africains-02.jpg",
+      "legende": "Formation des cadres et directeurs généraux des ports africains sur la cybersécurité des ports et l'apport de l'intelligence artificielle",
+      "legende_en": "Training African port executives and directors general in port cybersecurity and the contribution of AI"
+    },
+    {
+      "image": "/uploads/activites/ports-africains-01.jpg",
+      "legende": "Formation des cadres et directeurs généraux des ports africains sur la cybersécurité des ports et l'apport de l'intelligence artificielle",
+      "legende_en": "Training African port executives and directors general in port cybersecurity and the contribution of AI"
+    },
+    {
+      "image": "/uploads/activites/ports-africains-03.jpg",
+      "legende": "Formation des cadres et directeurs généraux des ports africains sur la cybersécurité des ports et l'apport de l'intelligence artificielle",
+      "legende_en": "Training African port executives and directors general in port cybersecurity and the contribution of AI"
+    },
+    {
+      "image": "/uploads/activites/ports-africains-05.jpg",
+      "legende": "Formation des cadres et directeurs généraux des ports africains sur la cybersécurité des ports et l'apport de l'intelligence artificielle",
+      "legende_en": "Training African port executives and directors general in port cybersecurity and the contribution of AI"
+    },
+    {
+      "image": "/uploads/activites/ports-africains-04.jpg",
+      "legende": "Formation des cadres et directeurs généraux des ports africains sur la cybersécurité des ports et l'apport de l'intelligence artificielle",
+      "legende_en": "Training African port executives and directors general in port cybersecurity and the contribution of AI"
+    },
+    {
+      "image": "/uploads/activites/ports-africains-06.jpg",
+      "legende": "Formation des cadres et directeurs généraux des ports africains sur la cybersécurité des ports et l'apport de l'intelligence artificielle",
+      "legende_en": "Training African port executives and directors general in port cybersecurity and the contribution of AI"
+    },
+    {
+      "image": "/uploads/activites/ports-africains-07.jpg",
+      "legende": "Formation des cadres et directeurs généraux des ports africains sur la cybersécurité des ports et l'apport de l'intelligence artificielle",
+      "legende_en": "Training African port executives and directors general in port cybersecurity and the contribution of AI"
+    },
+    {
+      "image": "/uploads/activites/ports-africains-08.jpg",
+      "legende": "Formation des cadres et directeurs généraux des ports africains sur la cybersécurité des ports et l'apport de l'intelligence artificielle",
+      "legende_en": "Training African port executives and directors general in port cybersecurity and the contribution of AI"
+    },
+    {
+      "image": "/uploads/activites/ports-africains-09.jpg",
+      "legende": "Formation des cadres et directeurs généraux des ports africains sur la cybersécurité des ports et l'apport de l'intelligence artificielle",
+      "legende_en": "Training African port executives and directors general in port cybersecurity and the contribution of AI"
+    },
+    {
+      "image": "/uploads/activites/ports-africains-10.jpg",
+      "legende": "Formation des cadres et directeurs généraux des ports africains sur la cybersécurité des ports et l'apport de l'intelligence artificielle",
+      "legende_en": "Training African port executives and directors general in port cybersecurity and the contribution of AI"
+    },
+    {
+      "image": "/uploads/activites/ports-africains-11.jpg",
+      "legende": "Formation des cadres et directeurs généraux des ports africains sur la cybersécurité des ports et l'apport de l'intelligence artificielle",
+      "legende_en": "Training African port executives and directors general in port cybersecurity and the contribution of AI"
+    },
+    {
+      "image": "/uploads/activites/ports-africains-12.jpg",
+      "legende": "Formation des cadres et directeurs généraux des ports africains sur la cybersécurité des ports et l'apport de l'intelligence artificielle",
+      "legende_en": "Training African port executives and directors general in port cybersecurity and the contribution of AI"
+    },
+    {
+      "image": "/uploads/activites/ports-africains-13.jpg",
+      "legende": "Formation des cadres et directeurs généraux des ports africains sur la cybersécurité des ports et l'apport de l'intelligence artificielle",
+      "legende_en": "Training African port executives and directors general in port cybersecurity and the contribution of AI"
+    },
+    {
+      "image": "/uploads/activites/ports-africains-14.jpg",
+      "legende": "Formation des cadres et directeurs généraux des ports africains sur la cybersécurité des ports et l'apport de l'intelligence artificielle",
+      "legende_en": "Training African port executives and directors general in port cybersecurity and the contribution of AI"
+    },
+    {
+      "image": "/uploads/activites/ports-africains-15.jpg",
+      "legende": "Formation des cadres et directeurs généraux des ports africains sur la cybersécurité des ports et l'apport de l'intelligence artificielle",
+      "legende_en": "Training African port executives and directors general in port cybersecurity and the contribution of AI"
+    },
+    {
+      "image": "/uploads/activites/ports-africains-affiche.jpg",
+      "legende": "Affiche de l'atelier « Cybersécurité portuaire », Conférence des Ports Africains (COPAF), 20 octobre 2026",
+      "legende_en": "Poster for the “Port cybersecurity” workshop, Conference of African Ports (COPAF), October 20, 2026"
+    }
   ],
   "videos": [
-    { "fichier": "/videos/ports-africains-02.mp4", "youtube": "", "apercu": "/uploads/activites/ports-africains-video-02.jpg", "legende": "« Du système chiffré à la congestion du terminal »", "legende_en": "“From encrypted systems to terminal congestion”" },
-    { "fichier": "/videos/ports-africains-01.mp4", "youtube": "", "apercu": "/uploads/activites/ports-africains-video-01.jpg", "legende": "Les usages de l'IA dans les ports", "legende_en": "AI use cases in ports" },
-    { "fichier": "/videos/ports-africains-03.mp4", "youtube": "", "apercu": "/uploads/activites/ports-africains-video-03.jpg", "legende": "Échanges avec les participants", "legende_en": "Discussion with participants" }
+    {
+      "fichier": "/videos/ports-africains-02.mp4",
+      "youtube": "",
+      "apercu": "/uploads/activites/ports-africains-video-02.jpg",
+      "legende": "« Du système chiffré à la congestion du terminal »",
+      "legende_en": "“From encrypted systems to terminal congestion”"
+    },
+    {
+      "fichier": "/videos/ports-africains-01.mp4",
+      "youtube": "",
+      "apercu": "/uploads/activites/ports-africains-video-01.jpg",
+      "legende": "Les usages de l'IA dans les ports",
+      "legende_en": "AI use cases in ports"
+    },
+    {
+      "fichier": "/videos/ports-africains-03.mp4",
+      "youtube": "",
+      "apercu": "/uploads/activites/ports-africains-video-03.jpg",
+      "legende": "Échanges avec les participants",
+      "legende_en": "Discussion with participants"
+    }
   ],
   "a_la_une": true,
-  "brouillon": false
+  "brouillon": false,
+  "cadrage": "centre"
 }

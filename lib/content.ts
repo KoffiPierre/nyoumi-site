@@ -170,6 +170,15 @@ export interface MediaVideo {
   caption: string;
 }
 
+/** Vertical focus of the cover photo when it has to be cropped. */
+export type CoverFocus = 'haut' | 'centre' | 'bas' | 'sans';
+export const coverFocusPosition: Record<CoverFocus, string> = {
+  haut: 'center 15%',
+  centre: 'center 50%',
+  bas: 'center 85%',
+  sans: 'center 50%',
+};
+
 export interface Activity {
   slug: string;
   title: string;
@@ -181,6 +190,9 @@ export interface Activity {
   summary: string;
   body: string;
   cover: string;
+  coverPosition: string;
+  /** false when the cover must not be used as the detail page banner (e.g. a poster). */
+  coverInBanner: boolean;
   photos: MediaPhoto[];
   videos: MediaVideo[];
   featured: boolean;
@@ -211,6 +223,8 @@ function toActivity(slug: string, a: Raw, locale: Locale): Activity {
     summary: t(a, 'resume', locale),
     body: t(a, 'texte', locale),
     cover: str(a.couverture) || photos[0]?.src || videos[0]?.poster || '',
+    coverPosition: coverFocusPosition[(str(a.cadrage) as CoverFocus)] || coverFocusPosition.centre,
+    coverInBanner: str(a.cadrage) !== 'sans',
     photos,
     videos,
     featured: a.a_la_une === true,

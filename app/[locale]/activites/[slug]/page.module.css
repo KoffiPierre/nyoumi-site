@@ -8,9 +8,15 @@
   overflow: hidden;
 }
 
+.plain {
+  min-height: 0;
+  background:
+    radial-gradient(ellipse 60% 80% at 100% 0%, rgba(208, 169, 87, 0.14), transparent 60%),
+    var(--ink);
+}
+
 .heroImg {
   object-fit: cover;
-  object-position: center 20%;
 }
 
 .heroShade {

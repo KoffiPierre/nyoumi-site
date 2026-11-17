@@ -1,0 +1,27 @@
+{
+  "titre": "Webinaire « Maîtriser l'IA générative et l'art du prompt engineering »",
+  "titre_en": "Webinar “Mastering generative AI and the art of prompt engineering”",
+  "date": "2026-10-07",
+  "periode": "Mercredi 7 octobre 2026, 18h GMT",
+  "periode_en": "Wednesday, October 7, 2026, 6 pm GMT",
+  "categorie": "conference",
+  "lieu": "En ligne",
+  "lieu_en": "Online",
+  "partenaire": "SAIN",
+  "resume": "Webinaire animé par le Dr Dieudonné Nyoumi Mballa pour apprendre à tirer parti de l'IA générative et à formuler des requêtes efficaces.",
+  "resume_en": "A webinar led by Dr Dieudonné Nyoumi Mballa on making the most of generative AI and writing effective prompts.",
+  "texte": "Le Dr Dieudonné Nyoumi Mballa, formateur des cadres et expert en Blockchain, Web3 & IA, a animé pour **SAIN** le webinaire **« Maîtriser l'IA générative et l'art du prompt engineering »**, le mercredi 7 octobre 2026.",
+  "texte_en": "Dr Dieudonné Nyoumi Mballa, executive trainer and Blockchain, Web3 & AI expert, led the **SAIN** webinar **“Mastering generative AI and the art of prompt engineering”** on Wednesday, October 7, 2026.",
+  "couverture": "/uploads/activites/webinaire-sain-ia-generative.jpg",
+  "cadrage": "sans",
+  "photos": [
+    {
+      "image": "/uploads/activites/webinaire-sain-ia-generative.jpg",
+      "legende": "Affiche du webinaire SAIN « Maîtriser l'IA générative et l'art du prompt engineering »",
+      "legende_en": "Poster for the SAIN webinar “Mastering generative AI and the art of prompt engineering”"
+    }
+  ],
+  "videos": [],
+  "a_la_une": false,
+  "brouillon": false
+}
