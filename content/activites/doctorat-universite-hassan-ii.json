@@ -1,0 +1,23 @@
+{
+  "titre": "Doctorat, Université Hassan II de Casablanca, promotion de janvier 2026",
+  "titre_en": "Doctorate, Hassan II University of Casablanca, January 2026 class",
+  "date": "2026-01-15",
+  "periode": "Janvier 2026",
+  "periode_en": "January 2026",
+  "categorie": "distinction",
+  "lieu": "Casablanca, Maroc",
+  "lieu_en": "Casablanca, Morocco",
+  "partenaire": "Université Hassan II de Casablanca",
+  "resume": "Docteur de l'Université Hassan II de Casablanca, option Blockchain & Web3 / IA, avec mention très honorable et félicitations du jury.",
+  "resume_en": "Doctor of Hassan II University of Casablanca, Blockchain & Web3 / AI track, with highest honors and jury commendation.",
+  "texte": "Aboutissement de quatre années de recherche menées en parallèle de l'enseignement et de l'ingénierie, le doctorat de l'Université Hassan II de Casablanca a été obtenu avec **mention très honorable et félicitations du jury**, au sein de la promotion de janvier 2026.",
+  "texte_en": "The outcome of four years of research conducted alongside teaching and engineering work, the doctorate from Hassan II University of Casablanca was awarded **with highest honors and jury commendation**, as part of the January 2026 class.",
+  "couverture": "/uploads/activites/doctorat-01.jpg",
+  "photos": [
+    { "image": "/uploads/activites/doctorat-01.jpg", "legende": "En toge doctorale, promotion de janvier 2026", "legende_en": "In doctoral robes, January 2026 class" },
+    { "image": "/uploads/activites/doctorat-02.jpg", "legende": "Docteur de l'Université Hassan II de Casablanca, option Blockchain & Web3 / IA", "legende_en": "Doctor of Hassan II University of Casablanca, Blockchain & Web3 / AI track" }
+  ],
+  "videos": [],
+  "a_la_une": false,
+  "brouillon": false
+}

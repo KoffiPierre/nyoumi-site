@@ -16,10 +16,10 @@ export default function NotFound() {
   return (
     <section className={styles.wrap}>
       <div className={`wrap ${styles.content}`}>
-        <span className={`mono ${styles.kicker}`}>{dict.notFound.kicker}</span>
+        <span className="eyebrow on-dark">{dict.notFound.kicker}</span>
         <h1 className={styles.title}>{dict.notFound.title}</h1>
         <p className={styles.lede}>{dict.notFound.lede}</p>
-        <Link href={`/${locale}`} className="btn btn-primary">
+        <Link href={`/${locale}`} className="btn btn-gold">
           {dict.notFound.back}
         </Link>
       </div>

@@ -1,17 +1,23 @@
+import { ReactNode } from 'react';
 import styles from './PageHeader.module.css';
 
 interface PageHeaderProps {
   label: string;
   title: string;
-  lede: string;
+  lede?: string;
+  children?: ReactNode;
 }
 
-export default function PageHeader({ label, title, lede }: PageHeaderProps) {
+/** Navy title band at the top of every inner page. */
+export default function PageHeader({ label, title, lede, children }: PageHeaderProps) {
   return (
-    <div className={styles.wrap}>
-      <span className="eyebrow">{label}</span>
-      <h1 className={styles.title}>{title}</h1>
-      <p className={styles.lede}>{lede}</p>
-    </div>
+    <header className={`${styles.band} on-dark`}>
+      <div className={`wrap ${styles.inner}`}>
+        <span className="eyebrow">{label}</span>
+        <h1 className={styles.title}>{title}</h1>
+        {lede && <p className={styles.lede}>{lede}</p>}
+        {children}
+      </div>
+    </header>
   );
 }

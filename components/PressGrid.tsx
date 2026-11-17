@@ -1,41 +1,31 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { pressByLocale } from '@/data/press';
+import { PressArticle, formatDay } from '@/lib/content';
 import { getDictionary } from '@/lib/dictionary';
 import { Locale } from '@/types/content';
 import styles from './PressGrid.module.css';
 
-interface PressGridProps {
-  locale: Locale;
-  limit?: number;
-}
-
-export default function PressGrid({ locale, limit }: PressGridProps) {
-  const all = pressByLocale[locale];
-  const items = limit ? all.slice(0, limit) : all;
+export default function PressGrid({ articles, locale }: { articles: PressArticle[]; locale: Locale }) {
   const dict = getDictionary(locale);
-
   return (
     <div className={styles.grid}>
-      {items.map((entry) => (
-        <article key={entry.id} className={styles.card}>
-          <Link href={`/${locale}/presse/${entry.slug}`} className={styles.thumbTrigger}>
-            <div className={styles.thumb}>
-              <Image src={entry.image} alt={entry.title} fill sizes="(max-width: 760px) 100vw, 50vw" className={styles.img} />
-              <span className={styles.zoomHint}>{dict.press.readFull}</span>
-            </div>
-          </Link>
-
-          <div className={styles.body}>
-            <span className="eyebrow">{entry.tag}</span>
-            <h3 className={styles.title}>{entry.title}</h3>
-            <p className={styles.desc}>{entry.description}</p>
-            <div className={styles.meta}>
-              <span>{entry.outlet}, {entry.issue}</span>
-              <span>{entry.date}</span>
-            </div>
+      {articles.map((a) => (
+        <Link key={a.slug} href={`/${locale}/presse/${a.slug}`} className={styles.card}>
+          <div className={styles.thumb}>
+            {a.image && <Image src={a.image} alt={a.title} fill sizes="(max-width: 760px) 100vw, 260px" className={styles.img} />}
           </div>
-        </article>
+          <div className={styles.body}>
+            <span className={styles.meta}>
+              {a.outlet}
+              {a.issue && ` · ${a.issue}`}
+              {a.date && ` · ${formatDay(a.date, locale)}`}
+            </span>
+            {a.tag && <span className={styles.tag}>{a.tag}</span>}
+            <h3 className={styles.title}>{a.title}</h3>
+            <p className={styles.desc}>{a.summary}</p>
+            <span className={styles.read}>{dict.press.read} →</span>
+          </div>
+        </Link>
       ))}
     </div>
   );

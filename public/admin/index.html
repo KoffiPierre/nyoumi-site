@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <link href="/admin/config.yml" type="text/yaml" rel="cms-config-url" />
+    <title>Administration du site · Dieudonné Nyoumi Mballa</title>
+  </head>
+  <body>
+    <script>
+      // Started manually so the GitHub login goes through this site's own
+      // /api/decap/* routes, whatever the domain the site is served from.
+      window.CMS_MANUAL_INIT = true;
+    </script>
+    <script src="https://unpkg.com/decap-cms@3.17.3/dist/decap-cms.js"></script>
+    <script>
+      var isLocal = ['localhost', '127.0.0.1'].indexOf(window.location.hostname) !== -1;
+      CMS.init({
+        config: {
+          backend: {
+            name: 'github',
+            repo: 'KoffiPierre/nyoumi-site',
+            branch: 'main',
+            base_url: window.location.origin,
+            auth_endpoint: 'api/decap/auth',
+            commit_messages: {
+              create: 'Ajout : {{collection}} « {{slug}} »',
+              update: 'Mise à jour : {{collection}} « {{slug}} »',
+              delete: 'Suppression : {{collection}} « {{slug}} »',
+              uploadMedia: 'Ajout du fichier {{path}}',
+              deleteMedia: 'Suppression du fichier {{path}}',
+            },
+          },
+          local_backend: isLocal,
+        },
+      });
+    </script>
+  </body>
+</html>

@@ -1,13 +1,13 @@
 'use client';
 
 import { useState, FormEvent } from 'react';
-import { profileByLocale } from '@/data/profile';
 import { getDictionary } from '@/lib/dictionary';
 import { Locale } from '@/types/content';
 import styles from './ContactForm.module.css';
 
 interface ContactFormProps {
   locale: Locale;
+  email: string;
 }
 
 interface FormState {
@@ -19,8 +19,7 @@ interface FormState {
 
 const initialState: FormState = { name: '', email: '', subject: '', message: '' };
 
-export default function ContactForm({ locale }: ContactFormProps) {
-  const profile = profileByLocale[locale];
+export default function ContactForm({ locale, email }: ContactFormProps) {
   const dict = getDictionary(locale);
   const [form, setForm] = useState<FormState>(initialState);
   const [errors, setErrors] = useState<Partial<FormState>>({});
@@ -45,7 +44,7 @@ export default function ContactForm({ locale }: ContactFormProps) {
 
     const subject = encodeURIComponent(form.subject || `${dict.contactForm.subjectFallback} ${form.name}`);
     const body = encodeURIComponent(`${form.message}\n\n${form.name} (${form.email})`);
-    window.location.href = `mailto:${profile.email}?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
     setSent(true);
   }
 

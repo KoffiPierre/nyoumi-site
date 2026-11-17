@@ -11,7 +11,7 @@ export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   // Never touch static files (anything with a file extension) or Next internals.
-  if (pathname.startsWith('/_next') || pathname.startsWith('/api') || /\.[a-zA-Z0-9]+$/.test(pathname)) {
+  if (pathname.startsWith('/_next') || pathname.startsWith('/api') || pathname.startsWith('/admin') || /\.[a-zA-Z0-9]+$/.test(pathname)) {
     return;
   }
 
@@ -25,8 +25,8 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  // Excludes _next, api, and any request path that has a file extension
+  // Excludes _next, api, admin (the content editor), and any request path that has a file extension
   // (images, videos, favicon, robots.txt, etc.) — those are always static
   // files and must never be prefixed with a locale.
-  matcher: ['/((?!_next|api|.*\\..*).*)'],
+  matcher: ['/((?!_next|api|admin|.*\\..*).*)'],
 };

@@ -13,10 +13,9 @@ export function getNavLinks(locale: Locale): NavLink[] {
     { href: '/', label: dict.nav.home },
     { href: '/parcours', label: dict.nav.parcours },
     { href: '/expertise', label: dict.nav.expertise },
-    { href: '/formation', label: dict.nav.formation },
-    { href: '/presse', label: dict.nav.presse },
-    { href: '/ouvrage', label: dict.nav.ouvrage },
+    { href: '/activites', label: dict.nav.activites },
     { href: '/publications', label: dict.nav.publications },
+    { href: '/presse', label: dict.nav.presse },
     { href: '/contact', label: dict.nav.contact },
   ];
 }

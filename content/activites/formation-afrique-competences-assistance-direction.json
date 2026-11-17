@@ -1,0 +1,81 @@
+{
+  "titre": "Assistance de Direction à l'ère du digital : automatiser, anticiper et gagner en efficacité",
+  "titre_en": "Executive Assistance in the Digital Age: automating, anticipating and gaining efficiency",
+  "date": "2025-07-20",
+  "periode": "Du 20 juillet au 1er août",
+  "periode_en": "July 20 to August 1",
+  "categorie": "formation",
+  "lieu": "",
+  "lieu_en": "",
+  "partenaire": "Afrique Compétences",
+  "resume": "Formation de cadres et d'équipes de direction venus de huit pays africains à l'intelligence artificielle appliquée à leurs métiers.",
+  "resume_en": "Training executives and management teams from eight African countries in applying artificial intelligence to their work.",
+  "texte": "En parallèle de ses activités de recherche et d'ingénierie, Dieudonné Nyoumi Mballa intervient comme formateur des cadres pour **Afrique Compétences**. Il accompagne des équipes de direction dans l'appropriation de l'intelligence artificielle appliquée à leurs métiers.\n\nSes sessions ont déjà réuni des cadres venus du Sénégal, de Guinée, du Tchad, du Cameroun, du Maroc, du Burkina Faso, du Congo et du Gabon.",
+  "texte_en": "Alongside his research and engineering work, Dieudonné Nyoumi Mballa serves as an executive trainer for **Afrique Compétences**, helping management teams put artificial intelligence to work in their own fields.\n\nHis sessions have already brought together executives from Senegal, Guinea, Chad, Cameroon, Morocco, Burkina Faso, Congo and Gabon.",
+  "couverture": "/images/formation/formation-03.jpg",
+  "photos": [
+    {
+      "image": "/images/formation/formation-01.jpg",
+      "legende": "Session de formation",
+      "legende_en": "Training session"
+    },
+    {
+      "image": "/images/formation/formation-02.jpg",
+      "legende": "Avec les cadres formés",
+      "legende_en": "With the trained executives"
+    },
+    {
+      "image": "/images/formation/formation-03.jpg",
+      "legende": "Animation au paperboard",
+      "legende_en": "Facilitating at the flipchart"
+    },
+    {
+      "image": "/images/formation/formation-04.jpg",
+      "legende": "Restitution des ateliers",
+      "legende_en": "Workshop debrief"
+    },
+    {
+      "image": "/images/formation/formation-05.jpg",
+      "legende": "Atelier sur les risques détectés par l'IA",
+      "legende_en": "Workshop on AI-detected risks"
+    },
+    {
+      "image": "/images/formation/formation-06.jpg",
+      "legende": "Atelier sur les risques détectés par l'IA",
+      "legende_en": "Workshop on AI-detected risks"
+    },
+    {
+      "image": "/images/formation/formation-07.jpg",
+      "legende": "Prise de parole en session",
+      "legende_en": "Speaking during the session"
+    },
+    {
+      "image": "/images/formation/formation-08.jpg",
+      "legende": "Remise du livre",
+      "legende_en": "Presenting the book"
+    },
+    {
+      "image": "/images/formation/formation-09.jpg",
+      "legende": "Cas pratique en direct",
+      "legende_en": "Live practical exercise"
+    }
+  ],
+  "videos": [
+    {
+      "fichier": "/videos/formation-01.mp4",
+      "youtube": "",
+      "apercu": "/images/formation/formation-video-01-poster.jpg",
+      "legende": "Préparatifs de session",
+      "legende_en": "Session setup"
+    },
+    {
+      "fichier": "/videos/formation-02.mp4",
+      "youtube": "",
+      "apercu": "/images/formation/formation-video-02-poster.jpg",
+      "legende": "L'IA sur le cycle de vie du projet",
+      "legende_en": "AI across the project lifecycle"
+    }
+  ],
+  "a_la_une": false,
+  "brouillon": false
+}

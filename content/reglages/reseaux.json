@@ -1,0 +1,19 @@
+{
+  "liens": [
+    {
+      "reseau": "linkedin",
+      "libelle": "LinkedIn",
+      "url": "https://www.linkedin.com/in/dieudonn%C3%A9-nyoumi-mballa-33b127267/"
+    },
+    {
+      "reseau": "facebook",
+      "libelle": "Facebook",
+      "url": "https://www.facebook.com/share/1D4stm2bSh/"
+    },
+    {
+      "reseau": "facebook",
+      "libelle": "Facebook (page 2)",
+      "url": "https://www.facebook.com/share/187P7A1Ydi/"
+    }
+  ]
+}

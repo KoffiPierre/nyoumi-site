@@ -32,7 +32,7 @@
 .field textarea {
   font-family: var(--font-body);
   font-size: 15px;
-  padding: 12px 14px;
+  padding: 14px 16px;
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: var(--paper-raised);
@@ -42,9 +42,9 @@
 
 .field input:focus,
 .field textarea:focus {
-  outline: 2px solid var(--accent);
+  outline: 2px solid var(--gold);
   outline-offset: 1px;
-  border-color: var(--accent);
+  border-color: var(--gold);
 }
 
 .field input[aria-invalid='true'],

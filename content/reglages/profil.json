@@ -1,0 +1,50 @@
+{
+  "nom": "Dieudonné Nyoumi Mballa",
+  "titre": "Docteur PhD · Expert Blockchain-Web3 & IA · Formateur de cadres",
+  "titre_en": "PhD · Blockchain-Web3 & AI Expert · Executive Trainer",
+  "titre_court": "Docteur PhD en IA & Formateur de Cadres",
+  "titre_court_en": "PhD in AI & Executive Trainer",
+  "role": "Ingénieur et chercheur : IA appliquée aux systèmes énergétiques, Blockchain & Web3, formateur de cadres",
+  "role_en": "Engineer and researcher: AI applied to energy systems, Blockchain & Web3, executive trainer",
+  "accroche": "Je conçois des systèmes intelligents, agents conversationnels, réseaux énergétiques optimisés et infrastructures décentralisées, et je forme des cadres et des ingénieurs venus de toute l'Afrique aux usages professionnels de l'intelligence artificielle.",
+  "accroche_en": "I design intelligent systems, conversational agents, optimized energy grids and decentralized infrastructure, and I train executives and engineers from across Africa in the professional applications of artificial intelligence.",
+  "portrait": "/uploads/profil/portrait-officiel.jpg",
+  "ville": "Casablanca, Maroc",
+  "ville_en": "Casablanca, Morocco",
+  "origine": "Cameroun",
+  "origine_en": "Cameroon",
+  "doctorat": "Univ. Hassan II, 2026",
+  "doctorat_en": "Hassan II Univ., 2026",
+  "email": "youmi.dieu95@gmail.com",
+  "telephone": "+212766331322",
+  "telephone_affiche": "+212 766-331322",
+  "adresse": "Sidi Maârouf, Casablanca, Maroc",
+  "adresse_en": "Sidi Maarouf, Casablanca, Morocco",
+  "langues": "Français · Anglais",
+  "langues_en": "French · English",
+  "chiffres": [
+    {
+      "valeur": "PhD",
+      "libelle": "Université Hassan II de Casablanca, mention très honorable",
+      "libelle_en": "Hassan II University of Casablanca, highest honors"
+    },
+    {
+      "valeur": "8",
+      "libelle": "pays africains représentés dans ses formations",
+      "libelle_en": "African countries represented in his training sessions"
+    },
+    {
+      "valeur": "1",
+      "libelle": "ouvrage publié sur l'intelligence artificielle",
+      "libelle_en": "published book on artificial intelligence"
+    }
+  ],
+  "references": [
+    "Ministère de l'Économie et des Finances (DSI)",
+    "Ports africains",
+    "Afrique Compétences",
+    "Université Hassan II de Casablanca",
+    "MarocVente",
+    "EDGE Business School"
+  ]
+}

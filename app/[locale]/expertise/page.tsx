@@ -4,7 +4,7 @@ import PageHeader from '@/components/PageHeader';
 import SkillGrid from '@/components/SkillGrid';
 import Section from '@/components/Section';
 import Reveal from '@/components/Reveal';
-import { profileByLocale } from '@/data/profile';
+import { getProfile } from '@/lib/content';
 import { Locale } from '@/types/content';
 import styles from './page.module.css';
 
@@ -40,9 +40,8 @@ const copy: Record<Locale, {
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: Locale }> }): Promise<Metadata> {
   const { locale } = await params;
-  const profile = profileByLocale[locale];
   const c = copy[locale];
-  return { title: `${profile.name} | ${c.metaTitle}`, description: c.metaDesc };
+  return { title: `${c.metaTitle} | ${getProfile(locale).name}`, description: c.metaDesc };
 }
 
 export default async function ExpertisePage({ params }: { params: Promise<{ locale: Locale }> }) {
@@ -50,8 +49,8 @@ export default async function ExpertisePage({ params }: { params: Promise<{ loca
   const c = copy[locale];
   return (
     <>
+      <PageHeader label={c.label} title={c.title} lede={c.lede} />
       <Section>
-        <PageHeader label={c.label} title={c.title} lede={c.lede} />
         <Reveal>
           <SkillGrid locale={locale} />
         </Reveal>
@@ -61,7 +60,7 @@ export default async function ExpertisePage({ params }: { params: Promise<{ loca
         <div className={styles.split}>
           <Reveal>
             <div className={styles.image}>
-              <Image src="/images/atelier.jpg" alt={c.mvpTitle} width={765} height={567} />
+              <Image src="/images/atelier.jpg" alt={c.mvpTitle} width={765} height={567} sizes="(max-width: 860px) 100vw, 50vw" />
             </div>
           </Reveal>
           <Reveal delay={0.1}>
